@@ -1,0 +1,256 @@
+/* 1. Estilos generales: se aplican a todos los elementos. */
+* {
+    /* 2. 'box-sizing': controla cómo se calculan las dimensiones de los elementos. */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Estilos para 'html': afectan a todo el documento. */
+html {
+    /* 4. 'font-family': especifica la familia tipográfica para el texto. */
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    /* 5. 'color': establece el color del texto. */
+    color: #dab333;
+    /* 6. 'font-family': especifica la familia tipográfica para el texto. */
+    font-family: Friz Quadrata Std, Mobilo, Helvetica, Arial;
+    font-size: 60px;
+}
+
+h2 {
+    color: #dab333;
+    font-family: Friz Quadrata Std, Mobilo, Helvetica, Arial;
+    font-size: 50px;
+}
+
+.icono {
+    height: 250px;
+    width: 400px;
+}
+
+body {
+    /* 7. Imagen de fondo fija y centrada. */
+    background: url('./fondo4.webp') no-repeat center center fixed;
+    /* 8. La imagen de fondo cubrirá todo el espacio disponible. */
+    background-size: cover;
+    /* 9. 'font-size': define el tamaño del texto. */
+    font-size: large;
+}
+
+/* 10. Estilos para enlaces. */
+a {
+    /* 11. Elimina el subrayado de los enlaces. */
+    text-decoration: none;
+}
+
+/* 12. Estilos para el formulario de usuarios. */
+.users-form form {
+    /* 13. Usa flexbox para la disposición de los elementos */
+    display: flex;
+    /* 14. Los elementos se apilan verticalmente. */
+    flex-direction: column;
+    /* 15. Espacio entre elementos de 24px. */
+    gap: 24px;
+    width: 30%;
+    /* 16. 'margin': establece el margen exterior de los elementos a 0. */
+    margin: 20px auto;
+    text-align: center;
+    color: #fff;
+}
+
+/* 17. Estilos para el selector en el formulario de usuarios. */
+.users-form form select {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2d2e28;
+    width: 300px;
+    margin: 0 auto;
+    padding: 8px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    /* 18. Elimina el contorno al enfocar. */
+    outline: none;
+    /* 19. Transición suave para cambios de estilo. */
+    transition: .3s;
+    color: white;
+}
+
+/* 20. Estilos para el selector enfocado en el formulario de usuarios. */
+.users-form form select:focus {
+    border-color: #dab333;
+    /* 21. Sombra al enfocar el elemento. */
+    box-shadow: 0 0 6px 0 #dab333;
+}
+
+/* 22. Estilos para las entradas de texto en el formulario de usuarios. */
+.users-form form input {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2d2e28;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* 23. Estilos adicionales para diferentes tipos de entradas de texto. */
+.users-form form input[type=text],
+.users-form form input[type=password],
+.users-form form input[type=email] {
+    padding: 8px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    outline: none;
+    transition: .3s;
+    color: #ffffff;
+}
+
+/* 24. Estilos para entradas de texto enfocadas. */
+.users-form form input[type=text]:focus,
+.users-form form input[type=password]:focus,
+.users-form form input[type=email]:focus {
+    border-color: #dab333;
+    box-shadow: 0 0 6px 0 #dab333;
+}
+
+/* 25. Estilos para el botón de envío en el formulario de usuarios. */
+.users-form form input[type=submit] {
+    border: none;
+    /* 26. 'padding': establece el relleno interior de los elementos a 0. */
+    padding: 12px 50px;
+    text-decoration: none;
+    /* 27. Duración de la transición al cambiar estilos. */
+    transition-duration: 0.4s;
+    /* 28. Cambia el cursor a una mano al pasar por encima. */
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    border: 2px solid #ffffff;
+}
+
+/* 29. Estilos para el botón de envío al pasar el cursor por encima. */
+.users-form form input[type=submit]:hover {
+    /* 30. Cambia el color de fondo y texto al pasar el cursor. */
+    background-color: #2d2e28;
+    color: white;
+}
+
+/* 31. Estilos para la tabla de usuarios. */
+.users-table table {
+    border: 1px solid #ccc;
+    /* 32. Las celdas de la tabla no tienen espacios entre ellas. */
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 99%;
+    /* 33. Diseño fijo para las columnas de la tabla. */
+    table-layout: fixed;
+}
+
+/* 34. Estilos para las filas de la tabla. */
+table tr {
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+/* 35. Estilos para las cabeceras de la tabla. */
+table th {
+    padding: 16px;
+    /* 36. 'text-align': define la alineación horizontal del texto. */
+    text-align: center;
+    /* 37. 'font-size': define el tamaño del texto. */
+    font-size: .85em;
+    color: #ffffff;
+}
+
+/* 38. Estilos para el botón de edición en la tabla. */
+.users-table--edit {
+    background: #009688;
+    padding: 6px;
+    color: #fff;
+    text-align: center;
+    /* 39. Texto en negrita para el botón editar. */
+    font-weight: bold;
+}
+
+/* 40. Estilos para el botón de eliminar en la tabla. */
+.users-table--delete {
+    /* 41. Estilos específicos para el botón eliminar, no especificados. */
+    background: #b11e1e;
+    padding: 6px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 42. Nuevos estilos para las imágenes en la tabla */
+.users-table img {
+    /* 43. Reducir el ancho máximo de la imagen. */
+    max-width: 150px;
+    /* 44. Mantiene la relación de aspecto de la imagen. */
+    height: auto;
+    /* 45. Asegura que la imagen cubra el área sin distorsionarse. */
+    object-fit: cover;
+}
+
+/* 46. Ajustes de diseño para la tabla. */
+.users-table table {
+    /* 47. Asegura que la tabla utilice todo el ancho disponible. */
+    width: 100%;
+}
+
+/* 48. Estilos para celdas y cabeceras de la tabla. */
+.users-table td, .users-table th {
+    /* 49. Aumentar el ancho mínimo para las celdas de la tabla. */
+    min-width: 250px;
+    /* 50. Permite que el texto se ajuste dentro de la celda. */
+    word-wrap: break-word;
+}
+
+/* 51. Reducir aún más el tamaño máximo de las imágenes para evitar superposiciones */
+.users-table img {
+    /* 52. Reducir el ancho máximo de la imagen. */
+    max-width: 150px;
+    /* 53. Mantiene la relación de aspecto de la imagen. */
+    height: auto;
+}
+
+/* 54. Reorganizar elementos en la tabla para acomodar mejor las imágenes */
+.users-table td {
+    display: flex;
+    /* 55. Alinea los elementos verticalmente al centro. */
+    align-items: center;
+    /* 56. Distribuye el espacio alrededor de los elementos. */
+    justify-content: space-around;
+}
+
+/* 57. Estilos para botones dentro de la tabla */
+.users-table--edit, .users-table--delete {
+    /* 58. 'margin': establece el margen exterior de los elementos a 0. */
+    margin: 0 5px;
+}
+
+/* 59. Aplicar flexbox en las celdas de la tabla */
+.users-table td {
+    display: flex;
+    align-items: center;
+    /* 60. Distribuye los elementos separándolos. */
+    justify-content: space-between;
+    /* 61. Permite que los elementos se ajusten en varias líneas si es necesario. */
+    flex-wrap: wrap;
+}
+
+/* 62. Ajustar el tamaño y alineación de las imágenes y botones */
+.users-table img {
+    /* 63. No permitir que la imagen crezca o se encoja. */
+    flex: 0 0 auto;
+    /* 64. Espacio entre la imagen y los botones. */
+    margin-right: 10px;
+}
+
+/* 65. Flexibilidad para los botones dentro de las celdas. */
+.users-table--edit, .users-table--delete {
+    /* 66. Permitir que los botones crezcan y se encojan. */
+    flex: 1 1 auto;
+}
