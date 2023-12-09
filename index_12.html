@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/IES.jpg" 
+    type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>RFVG</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Tres en Raya
+        </h1>
+    </header>
+
+    <main>
+        <h2 id="playerTurn">
+            Player's Turn: X
+        </h2>
+    
+        <div id="ticTacToeBoard" class="board">
+            <div class="cell" 
+            onclick="makeMove(this, 0)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 1)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 2)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 3)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 4)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 5)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 6)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 7)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 8)"></div>
+        </div>
+    </main>
+
+    <div class="button-container">
+        <button onclick="restartGame()" 
+        class="boton1">
+            Restart Game
+        </button>
+    </div>
+
+    <footer>
+        <h2>
+            Richard Francisco Vaca Garcia, 
+            2do CFGS DAW
+        </h2>
+    </footer>
+    <!-- ---------------------------------------- -->
+    <script src="./Widget.js"></script>
+</body>
+</html>
