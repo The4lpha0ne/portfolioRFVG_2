@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //'heading'. Esto muestra un tooltip con el 
         //texto "Implementación de JavaScript" cuando 
         //el ratón esté sobre él.
-        heading.setAttribute('title', 'Implementación de JavaScript');
+        heading.setAttribute('title', 'Implementación de JavaScript 1');
     });
 
     //9. Añade un escuchador de eventos al elemento 
@@ -49,3 +49,10 @@ document.addEventListener("DOMContentLoaded", function() {
         heading.removeAttribute('title');
     });
 });
+
+window.onload = function() {
+    alert(
+        '¡Bienvenidos/as a mi Proyecto Conjunto de ' + 
+        'DEW y DOR para el primer Trimestre!'
+    );
+};

@@ -1,3 +1,6 @@
+/* Aplica reglas globales a todos los 
+elementos, incluidos los pseudo-elementos 
+::after y ::before */
 *, *::after, *::before {
     box-sizing: border-box;
     margin: 0%;
@@ -5,6 +8,8 @@
     border: 0%;
 }
 
+/* Define variables CSS en el ámbito 
+global (:root) */
 :root {
     --oscuro: #212121;
     --gris: #757575;
@@ -19,6 +24,10 @@
     --MalachiteGreen: #0BDA51; 
     --CrimsonRed: #990000; 
     --DeepOrange: #dc4d01;
+    --LightBlue: #87CEEB;
+    --Brown2: #964B00;
+    --DeepPink: #ff1493;
+    --Gold2: #ffbf00;
 }
 
 /****************************************************************************************************/
@@ -31,7 +40,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track-piece {
-    background: black;
+    background: var(--DeepBlue);
 }
 
 /* Handle */
@@ -47,7 +56,7 @@
 
 html, body {
     overflow-x: hidden;
-    scrollbar-color: #39ff14 black;
+    scrollbar-color: #0021f3 #39ff14;
     scrollbar-width: auto;
 }
 
