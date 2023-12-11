@@ -63,6 +63,13 @@ html, body {
 /****************************************************************************************************/
 /****************************************************************************************************/
 
+#js_support {
+    background-color: red; 
+    color: white; 
+    text-align: center; 
+    padding: 10px;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -1554,7 +1561,26 @@ label {
 
 @media only screen and (max-width: 600px) {
     .boton2 {
-        margin: 0rem;
+        margin: 0rem 0rem 1rem 0rem;
+        background-color: var(--CrimsonRed);
+        padding: 1rem 3rem;
+        color: aqua;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 2rem;
+        text-transform: uppercase;
+        border-radius: 0.8rem;
+        border: 5px solid black;
+        text-align: center;
+        width: 90%;
+        text-shadow: 2px 3px black;
+        font-family: 'Sono', sans-serif;    
+    }    
+}
+
+@media only screen and (max-width: 664px) {
+    .boton2 {
+        margin: 0rem 0rem 1rem 0rem;
         background-color: var(--CrimsonRed);
         padding: 1rem 3rem;
         color: aqua;
@@ -1572,6 +1598,68 @@ label {
 }
 
 .boton2:hover {
+    cursor: pointer;
+    background-color: var(--NeonGreen);
+    color: black;
+    text-shadow: 1px 1px var(--DeepBlue);
+    border: 5px solid black;
+}
+
+.boton3 {
+    margin: 0rem;
+    background-color: var(--CrimsonRed);
+    padding: 1rem 3rem;
+    color: aqua;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    border: 5px solid black;
+    text-align: center;
+    text-shadow: 2px 3px black;
+    font-family: 'Sono', sans-serif;  
+}
+
+@media only screen and (max-width: 600px) {
+    .boton3 {
+        margin: 0rem;
+        background-color: var(--CrimsonRed);
+        padding: 1rem 3rem;
+        color: aqua;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 2rem;
+        text-transform: uppercase;
+        border-radius: 0.8rem;
+        border: 5px solid black;
+        text-align: center;
+        width: 90%;
+        text-shadow: 2px 3px black;
+        font-family: 'Sono', sans-serif;    
+    }    
+}
+
+@media only screen and (max-width: 664px) {
+    .boton3 {
+        margin: 0rem;
+        background-color: var(--CrimsonRed);
+        padding: 1rem 3rem;
+        color: aqua;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 2rem;
+        text-transform: uppercase;
+        border-radius: 0.8rem;
+        border: 5px solid black;
+        text-align: center;
+        width: 90%;
+        text-shadow: 2px 3px black;
+        font-family: 'Sono', sans-serif;    
+    }    
+}
+
+.boton3:hover {
     cursor: pointer;
     background-color: var(--NeonGreen);
     color: black;

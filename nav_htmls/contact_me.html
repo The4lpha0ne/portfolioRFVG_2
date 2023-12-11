@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/IES.jpg" type="image/x-icon">
+    <link rel="icon" href="../img/RFVG.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Diseñador Freelancer</title>
+    <title>Portfolio RFVG</title>
 
     <!------------------------------------------------------------>
 
@@ -17,6 +17,16 @@
 </head>
 
 <body>
+    <noscript>
+        <div id="js_support">
+            Este sitio requiere JavaScript para 
+            funcionar correctamente. 
+            
+            Por favor, habilita JavaScript en 
+            tu navegador.
+        </div>
+    </noscript>
+
     <header>
         <a href="../index.html" 
         class="vinculo">
@@ -41,7 +51,8 @@
                 Para ofertas de empleo y contratos de autónomos,
             </h2>
 
-            <form class="formulario" action="http://www.iesanaluisabenitez.org/" 
+            <form class="formulario" id="contactForm" 
+            action="http://www.iesanaluisabenitez.org/" 
             method="POST">
                 <fieldset>
                     <legend>
@@ -73,7 +84,10 @@
                         placeholder="Tú Mensaje..."></textarea>
                     </div>
 
-                    <input class="boton2" type="submit" value="Enviar">
+                    <div class="botoness">
+                        <input class="boton2" type="submit" value="Enviar">
+                        <input class="boton3" type="reset" value="Limpiar">
+                    </div>
                 </fieldset>
             </form>
         </section>
@@ -84,5 +98,7 @@
             2do año del Ciclo Formativo de Grado Superior DAW
         </p>
     </footer>
+
+    <script src="../js/formulario.js"></script>
 </body>
 </html>
