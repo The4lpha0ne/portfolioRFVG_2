@@ -338,6 +338,28 @@ h1, h2, h3 {
     border: 1rem solid white;
     border-radius: 3rem;
     margin: 0 auto;
+    animation: borderAnimation 2s infinite;
+    transition: transform 0.3s ease-in-out;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: white;
+    }
+
+    50% {
+        border-color: aqua;
+    }
+
+    100% {
+        border-color: white;
+    }
+}
+
+.my_pic:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    border-radius: 4.5rem;
 }
 
 @media only screen and (max-width: 768px) {
