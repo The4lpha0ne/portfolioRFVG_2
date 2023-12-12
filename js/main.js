@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
         paragraph.style.color = 'red';
         heading.style.color = '#0021F3';
         heading.style.cursor = 'pointer';
-        heading.setAttribute('title', 'Implementación de JavaScript 1');
+        heading.setAttribute(
+            'title', 'Implementación de JavaScript 1'
+        );
     });
 
     //5. Añade un escuchador de eventos al elemento 
@@ -40,7 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// 10. Define un manejador para el evento 'onload' en la 
+// ventana
 window.onload = function() {
+    // 11. Muestra un mensaje de alerta cuando la página 
+    // se carga completamente
     alert(
         '¡Bienvenidos/as a mi Proyecto Conjunto de ' + 
         'DEW y DOR para el primer Trimestre!'
