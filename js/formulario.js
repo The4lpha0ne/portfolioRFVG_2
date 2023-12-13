@@ -12,8 +12,8 @@ document.getElementById('contactForm').onsubmit = function(event) {
     // 5. Recupera y almacena el valor del campo 'mensaje' del formulario
     var mensaje = document.getElementById('mensaje').value;
 
-    // 6. Valida el nombre usando una expresión regular (al menos 3 caracteres, solo letras)
-    var regexNombre = /^[a-zA-Z]{3,}$/;
+    // 6. Valida el nombre usando una expresión regular (al menos 3 caracteres, letras y espacios permitidos)
+    var regexNombre = /^[a-zA-Z ]{3,}$/;
     if (!regexNombre.test(nombre)) {
         alert('Por favor, ingresa un nombre válido. Solo letras y mínimo 3 caracteres.');
         event.preventDefault();
@@ -43,6 +43,7 @@ document.getElementById('contactForm').onsubmit = function(event) {
         return false;
     }
 
-    // 10. Si todas las validaciones son correctas, permite el envío del formulario
+    // 10. Si todas las validaciones son correctas, muestra una alerta de éxito y permite el envío del formulario
+    alert('El formulario ha sido enviado exitosamente.');
     return true;
 };
