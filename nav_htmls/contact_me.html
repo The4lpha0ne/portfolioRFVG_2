@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/RFVG.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style3.css">
+    <title>Portfolio RFVG</title>
+
+    <!------------------------------------------------------------>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" 
+    rel="stylesheet">
+</head>
+
+<body>
+    <noscript>
+        <div id="js_support">
+            Este sitio requiere JavaScript para 
+            funcionar correctamente. 
+            
+            Por favor, habilita JavaScript en 
+            tu navegador.
+        </div>
+    </noscript>
+
+    <header>
+        <a href="../index.html" 
+        class="vinculo">
+            <h1 class="titulo">
+                Richard Francisco Vaca Garcia
+            </h1>
+        </a>
+    </header>
+        
+    <div class="nav-bg">
+        <nav class="navegacion-principal">
+            <a href="../index.html">Sobre Mí</a>
+            <a href="./skills.html">Habilidades</a>
+            <a href="./projects.html">Proyectos+Game</a>
+            <a href="./contact_me.html">Contacto</a>
+        </nav>        
+    </div>
+
+    <main class="contenedor sombra">
+        <section class="contacto1">
+            <h2 class="contacto2" id="form">
+                Para ofertas de empleo y contratos de autónomos,
+            </h2>
+
+            <form class="formulario" id="contactForm" 
+            action="http://www.iesanaluisabenitez.org/" 
+            method="POST">
+                <fieldset>
+                    <legend>
+                        Póngase en contacto conmigo rellenando el siguiente formulario.
+                    </legend>
+
+                    <div class="campo">
+                        <label class="camp_l">Nombre</label>
+                        <input class="input-text" type="text" id="nombre" 
+                        placeholder="Tú Nombre...">
+                    </div>
+
+                    <div class="campo">
+                        <label class="camp_l">Teléfono</label>
+                        <input class="input-text" type="tel" id="tlf" 
+                        placeholder="Tú Número de Teléfono... (123456789)">
+                    </div>
+
+                    <div class="campo">
+                        <label class="camp_l">Correo</label>
+                        <input class="input-text" type="email" id="email" 
+                        placeholder="Tú Email... (Validación se aplica después de escribir '.com' y al enviar formulario)">
+                    </div>
+
+                    <div class="campo">
+                        <label class="camp_l">Mensaje</label>
+                        <textarea class="input-text" name="mensaje" id="mensaje" 
+                        cols="30" rows="10" 
+                        placeholder="Tú Mensaje... (El Método para validar si el mensaje contiene contenido inapropiado funciona si ya esta ingresado un nombre, teléfono y correo primero.)"></textarea>
+                    </div>
+
+                    <div class="botoness">
+                        <input class="boton2" type="submit" value="Enviar">
+                        <input class="boton3" type="reset" value="Limpiar">
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>
+            2do año del Ciclo Formativo de Grado Superior DAW
+        </p>
+    </footer>
+
+    <script src="../js/formulario.js"></script>
+</body>
+</html>

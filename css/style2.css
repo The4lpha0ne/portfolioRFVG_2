@@ -1,0 +1,255 @@
+/* Aplica reglas globales a todos los 
+elementos, incluidos los pseudo-elementos 
+::after y ::before */
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 1.5%;
+    padding: 0%;
+    border: 0%;
+}
+
+/* Define variables CSS en el ámbito 
+global (:root) */
+:root {
+    --oscuro: #212121;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    /***************************/
+    --Charcoal: #36454F; 
+    --DeepBlue: #0021f3; 
+    --BlueViolet: #8a2be2; 
+    --NeonGreen: #39ff14; 
+    --MalachiteGreen: #0BDA51; 
+    --CrimsonRed: #990000; 
+    --DeepOrange: #dc4d01;
+    --LightBlue: #87CEEB;
+    --Brown2: #964B00;
+    --DeepPink: #ff1493;
+    --Gold2: #ffbf00;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+#js_support {
+    background-color: red; 
+    color: white; 
+    text-align: center; 
+    padding: 10px;
+}
+
+/* Establece el tamaño de fuente 
+base para el documento HTML */
+html {
+    font-size: 62.5%;
+}
+
+/*1rem = 10px*/
+body {
+    font-size: 16px;
+    font-family: 'Sono', sans-serif;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+/* Reglas de estilo específicas para 
+la impresión */
+@media print {
+    body {
+        background-color: Gray;
+        color: #0021f3;
+    }
+}
+
+.header-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.gameH1 {
+    color: #39ff14;
+    border-right: 4px solid #39ff14;
+    text-align: center;
+    margin-right: 10px; /* Espacio entre h1 y la tabla */
+    padding-right: 2.5rem;
+}
+
+.table2 {
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+}
+
+.table2 td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.boton1 {
+    /* align-self: center; */
+    width: 40%;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: var(--DeepBlue);
+    color: var(--NeonGreen);
+    border: 4px solid red;
+    font-weight: bolder;
+    font-size: 2rem;
+
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: 0 auto;
+
+    /* cursor: pointer; */
+    /* margin-top: 15px; */
+}
+
+.boton1:hover {
+    padding: 1.5rem;
+    border-radius: 20px;
+    background-color: var(--NeonGreen);
+    color: var(--DeepBlue);
+    border: 4px solid red;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    /* min-width: 300px;  */
+    /* width: 50%; */
+    width: auto;
+    height: auto;
+    margin: 20px auto;
+}
+
+.cell {
+    border: 2px solid white;
+
+    /* height: 100px; */
+    min-height: 4rem;
+    min-width: 4rem;
+    max-height: 8rem;
+    max-width: 8rem;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .cell {
+        border: 2px solid white;
+
+        min-height: 8rem;
+        min-width: 8rem;
+        max-height: 16rem;
+        max-width: 16rem;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        cursor: pointer;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+.linea_horizontal {
+    width: 100%; 
+    height: 4px;
+    background-color: var(--NeonGreen); 
+}
+
+footer {
+    font-style: italic;
+    text-align: center;
+}
+
+footer h2 {
+    color: #39ff14;
+    border-top: 4px solid #39ff14;    
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+#container1 {
+    width: 100%;
+}
+
+.cuerpo1 {
+    margin-top: 2%;
+    padding: 0%;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuerpo1 > h2 {
+    font-style: italic;
+    font-weight: bold;
+    background-color: blueviolet;
+    border-radius: 20px;
+    color: black;
+    text-shadow: 1px 1px aqua;
+    text-decoration: underline;
+    font-size: 200%;
+}
+
+.espacio2 {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.video1 {
+    width: 100%;
+    height: 400px;
+    max-width: 1000px;
+    max-height: auto;
+    border-radius: 20px;
+    border: 15px solid red;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/RFVG.png" 
+    type="image/x-icon">
+    <link rel="stylesheet" href="../css/style2.css">
+    <title>RFVG</title>
+</head>
+<body>
+    <noscript>
+        <div id="js_support">
+            Este sitio requiere JavaScript para 
+            funcionar correctamente. 
+            
+            Por favor, habilita JavaScript en 
+            tu navegador.
+        </div>
+    </noscript>
+
+    <header>
+        <div class="header-container">
+            <h1 class="gameH1">
+                Tres en Raya
+            </h1>
+
+            <table class="table2">
+                <!-- Primer row -->
+                <tr>
+                    <td colspan="2" rowspan="2">X</td>
+                    <td colspan="2" rowspan="2"></td>
+                    <td colspan="2" rowspan="2"></td>
+                </tr>
+                <tr></tr>
+    
+                <!-- Segundo row -->
+                <tr>
+                    <td colspan="2" rowspan="2"></td>
+                    <td colspan="2" rowspan="2">X</td>
+                    <td colspan="2" rowspan="2"></td>
+                </tr>
+                <tr></tr>
+    
+                <!-- Tercer row -->
+                <tr>
+                    <td colspan="2" rowspan="2">O</td>
+                    <td colspan="2" rowspan="2"></td>
+                    <td colspan="2" rowspan="2">X</td>
+                </tr>
+                <tr></tr>
+            </table>
+        </div>
+    </header>
+    <div class="linea_horizontal"></div>
+
+    <main>
+        <h2 id="playerTurn">
+            Player's Turn: X
+        </h2>
+    
+        <div id="ticTacToeBoard" class="board">
+            <div class="cell" 
+            onclick="makeMove(this, 0)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 1)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 2)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 3)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 4)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 5)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 6)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 7)"></div>
+    
+            <div class="cell" 
+            onclick="makeMove(this, 8)"></div>
+        </div>
+    </main>
+
+    <div class="button-container">
+        <button onclick="restartGame()" 
+        class="boton1">
+            Restart Game
+        </button>
+    </div>
+
+    <div class="container1">
+        <div class="cuerpo1">
+            <h2>Video sobre una Rutina Ideal</h2>
+
+            <div class="espacio2">
+                <table>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <iframe src="https://www.youtube.com/embed/bjdEDbASleI?autoplay=1&mute=1" 
+            title="Tres en raya utilizando HTML, CSS y JavaScript" 
+            frameborder="0" class="video1" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen></iframe>    
+        </div>
+    </div>
+    <br>
+
+    <footer>
+        <h2>
+            Richard Francisco Vaca Garcia, 
+            2do CFGS DAW
+        </h2>
+    </footer>
+    <!-- ---------------------------------------- -->
+    <script src="../js/Widget.js"></script>
+</body>
+</html>
