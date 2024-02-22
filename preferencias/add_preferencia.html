@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir/Editar Preferencia</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/añadir_preferencia.js" defer></script>
+</head>
+<body>
+    <h2 id="titulo-formulario">Añadir Nueva Preferencia</h2>
+    <form id="formulario-preferencia">
+        <label for="nombre-preferencia">Nombre de la Preferencia:</label>
+        <input type="text" id="nombre-preferencia" name="nombre-preferencia" required>
+
+        <label for="color-fondo">Color de Fondo:</label>
+        <input type="color" id="color-fondo" name="color-fondo" required>
+
+        <label for="color-letra">Color de Letra:</label>
+        <input type="color" id="color-letra" name="color-letra" required>
+
+        <!-- Este campo oculto ayuda a determinar si el formulario se está utilizando para añadir o editar -->
+        <input type="hidden" id="editando" name="editando" value="false">
+
+        <button type="submit">Guardar Preferencia</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </form>
+    <script>
+        function cancelar() {
+            // Limpia cualquier preferencia actual en localStorage y redirige
+            localStorage.removeItem('preferenciaActual');
+            window.location.href = 'preferencias.html';
+        }
+    </script>
+</body>
+</html>

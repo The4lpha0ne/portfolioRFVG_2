@@ -70,35 +70,3 @@ document.addEventListener("DOMContentLoaded", () => {
     const miApp = new Aplicacion();
     miApp.iniciar();
 });
-
-// 9. Manejador evento 'onload' (Función Flecha, Manejo 
-// de String y Alert): Muestra un mensaje al cargar la 
-// página.
-window.onload = () => {
-    // 10. Crea un mensaje (Manejo de String): Formatea la 
-    // fecha y hora actual en un string.
-    const now = new Date();
-
-    const amPm = now.getHours() >= 12 ? 'PM' : 'AM';
-
-    const hour = now.getHours() % 12 || 12;
-
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-
-    const dateString = 
-    `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} a las ${hour}:${minutes} ${amPm}`;
-
-    // 11. Muestra un mensaje de alerta (Alert): Usa 
-    // 'alert' para mostrar el mensaje formateado.
-    alert(
-        `¡Bienvenidos/as a mi Proyecto Conjunto de DEW y DOR para el primer Trimestre! Es ${dateString}.`
-    );
-};
-
-//document.addEventListener("DOMContentLoaded", function() {
-
-    //heading.addEventListener('mouseover', function() {
-
-    //heading.addEventListener('mouseout', function() {
-    
-//window.onload = function() {
