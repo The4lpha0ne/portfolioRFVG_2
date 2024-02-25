@@ -118,3 +118,13 @@ function getCookie(nombre) {
     // existe.
     return "";
 }
+
+function redireccionarAPreferencias() {
+    let nombreUsuario = getCookie("nombreUsuario");
+    // Asumiendo que "preferencias.html" es la página que muestra el saludo y las preferencias, 
+    // y "add_preferencia.html" es para añadir una nueva preferencia
+    let destino = nombreUsuario ? "./preferencias/preferencias.html" : "./preferencias/add_preferencia.html";
+
+    window.location.href = destino;
+}
+

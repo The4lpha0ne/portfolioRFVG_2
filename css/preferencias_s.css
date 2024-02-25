@@ -1,0 +1,338 @@
+/* Aplica reglas globales a todos los 
+elementos, incluidos los pseudo-elementos 
+::after y ::before */
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 1.5%;
+    padding: 0%;
+    border: 0%;
+}
+
+/* Define variables CSS en el ámbito 
+global (:root) */
+:root {
+    --oscuro: #212121;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    /***************************/
+    --Charcoal: #36454F; 
+    --DeepBlue: #0021f3; 
+    --BlueViolet: #8a2be2; 
+    --NeonGreen: #39ff14; 
+    --MalachiteGreen: #0BDA51; 
+    --CrimsonRed: #990000; 
+    --DeepOrange: #dc4d01;
+    --LightBlue: #87CEEB;
+    --Brown2: #964B00;
+    --DeepPink: #ff1493;
+    --Gold2: #ffbf00;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+/* width */
+/* ::-webkit-scrollbar {
+    width: auto;
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track-piece {
+    background: black;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: var(--NeonGreen);
+    border-radius: 10px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: aqua;
+} */
+
+html, body {
+    overflow-x: hidden;
+    scrollbar-color: #39ff14 #000000;
+    scrollbar-width: auto;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+/* Establece el tamaño de fuente 
+base para el documento HTML */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Sono', sans-serif;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    border: 10px solid var(--Gold2);
+    border-radius: 10rem;
+    font-weight: bolder;
+}
+
+#saludo-usuario {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    /* border-bottom: 4px solid var(--NeonGreen);  */
+    font-size: 26px;
+    margin-top: 2rem;
+}
+
+#titulo-formulario {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    /* border-bottom: 4px solid var(--NeonGreen);  */
+    font-size: 26px;
+    margin-top: 2rem;
+}
+
+.boton_usar {
+    border: 4px solid var(--NeonGreen);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: aqua;
+    background-color: var(--DeepBlue);
+    border-radius: 1rem;
+}
+
+.boton_usar:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: aqua;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.boton_editar {
+    border: 4px solid var(--Gold2);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: aqua;
+    background-color: var(--DeepBlue);
+    border-radius: 1rem;
+}
+
+.boton_editar:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: aqua;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.boton_eliminar {
+    border: 4px solid red;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: aqua;
+    background-color: var(--DeepBlue);
+    border-radius: 1rem;
+}
+
+.boton_eliminar:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: aqua;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#aniadir-preferencia {
+    border: 4px solid aqua;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--NeonGreen);
+    background-color: black;
+    border-radius: 1rem;
+}
+
+#aniadir-preferencia:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: var(--NeonGreen);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.guardar_p {
+    border: 4px solid aqua;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--NeonGreen);
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.guardar_p:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: var(--NeonGreen);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.b_cancelar {
+    border: 4px solid red;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: aqua;
+    background-color: var(--DeepBlue);
+    border-radius: 1rem;
+}
+
+.b_cancelar:hover {
+    cursor: pointer;
+    color: var(--DeepBlue);
+    background-color: aqua;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#nombre-preferencia {
+    border: 6px solid aqua;
+    border-radius: 2rem;
+    background-color: black;
+    color: var(--Gold2);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-style: italic;
+}
+
+.a_1 {
+    text-decoration: none;
+    color: aqua;
+    border: 4px dashed red;
+    padding: 1rem;
+    background-color: black;
+
+}
+
+.a_1:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 26px;
+}
+
+#formulario-preferencia {
+    width: 100%;
+}
+
+#lista-preferencias {
+    text-decoration: underline;
+    /* font-size: 20px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lista-p {
+    width: 100%;
+    text-align: center;
+}
+
+.nom_p, .color_f, .color_l {
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.contenedor1,
+.contenedor2,
+.contenedor3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.linea_horizontal2 {
+    margin: 0 auto;
+    width: 80%; 
+    height: 4px;
+    background-color: var(--NeonGreen); 
+}
+
+.linea_horizontal3 {
+    width: 90%; 
+    height: 4px;
+    background-color: var(--NeonGreen); 
+}
+
+footer {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+/* footer h2 {
+    color: var(--NeonGreen);
+    border-top: 4px solid var(--NeonGreen);    
+} */
+
+/* Estilos para pantallas grandes (escritorios) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px; /* Tamaño de fuente más grande para facilitar la lectura */
+    }
+
+    #saludo-usuario, #titulo-formulario {
+        font-size: 30px; /* Hacer los títulos más grandes */
+    }
+}
+
+/* Estilos para tablets o pantallas medianas */
+@media (min-width: 768px) and (max-width: 1199px) {
+    body {
+        font-size: 16px;
+    }
+
+    #saludo-usuario, #titulo-formulario {
+        font-size: 28px;
+    }
+
+    .contenedor1, .contenedor2, .contenedor3 {
+        padding: 10px; /* Más espacio dentro de los contenedores */
+    }
+}
+
+/* Estilos para dispositivos móviles o pantallas pequeñas */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px; /* Reducir el tamaño de fuente para ahorrar espacio */
+        padding: 2px; /* Reducir el padding para utilizar mejor el espacio */
+        border-radius: 5rem; /* Radio de borde más pequeño */
+    }
+
+    #saludo-usuario, #titulo-formulario {
+        font-size: 24px; /* Títulos más pequeños */
+    }
+
+    .contenedor1, .contenedor2, .contenedor3 {
+        flex-direction: column; /* Organizar los elementos en columna */
+    }
+
+    .boton_usar, .boton_editar, .boton_eliminar, #aniadir-preferencia, .guardar_p {
+        padding: 10px; /* Ajustar el padding para botones más pequeños */
+        font-size: 14px; /* Tamaño de fuente más pequeño para los botones */
+        margin-bottom: 10px; /* Más margen entre botones */
+    }
+
+    a.a_1, button {
+        font-size: 14px; /* Reducir el tamaño de fuente para enlaces y botones */
+    }
+}

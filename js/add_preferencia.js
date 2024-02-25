@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const formulario = document.getElementById("formulario-preferencia");
-    const editando = localStorage.getItem('preferenciaActual') !== null;
+    // Verifica directamente si preferenciaActual tiene valor
+    const preferenciaActual = JSON.parse(localStorage.getItem('preferenciaActual'));
+    const editando = preferenciaActual !== null;
 
-    // Prellenar el formulario si se está editando una preferencia
     if (editando) {
-        const preferenciaActual = JSON.parse(localStorage.getItem('preferenciaActual'));
         document.getElementById('nombre-preferencia').value = preferenciaActual.nombre;
         document.getElementById('color-fondo').value = preferenciaActual.colorFondo;
         document.getElementById('color-letra').value = preferenciaActual.colorLetra;
-        document.getElementById('editando').value = 'true'; // Asume que tienes este campo en tu formulario
+        // Asegura que el formulario sepa que está editando
+        document.getElementById('editando').value = 'true'; 
     }
 
     formulario.addEventListener("submit", function(event) {
@@ -25,28 +26,54 @@ document.addEventListener("DOMContentLoaded", function() {
             guardarPreferencia(nombre, colorFondo, colorLetra);
         }
 
-        // Limpiar el formulario y la preferencia actual en localStorage
         formulario.reset();
         localStorage.removeItem('preferenciaActual');
-        window.location.href = 'preferencias.html'; // Redirige al usuario a la página de preferencias
+        window.location.href = 'preferencias.html';
     });
 });
 
 function guardarPreferencia(nombre, colorFondo, colorLetra) {
     const preferencias = JSON.parse(localStorage.getItem("preferencias")) || [];
-    preferencias.push({ nombre, colorFondo, colorLetra });
+    // Se crea un nuevo ID basado en el mayor ID existente + 1
+    const nuevoId = preferencias.length > 0 ? Math.max(...preferencias.map(pref => pref.id)) + 1 : 1;
+    preferencias.push({ id: nuevoId, nombre, colorFondo, colorLetra });
     localStorage.setItem("preferencias", JSON.stringify(preferencias));
 }
 
 function actualizarPreferencia(nombre, colorFondo, colorLetra) {
     let preferencias = JSON.parse(localStorage.getItem("preferencias"));
-    const indice = preferencias.findIndex(pref => pref.nombre === nombre);
+    const preferenciaActual = JSON.parse(localStorage.getItem('preferenciaActual'));
+    const index = preferencias.findIndex(pref => pref.id === preferenciaActual.id);
 
-    if (indice !== -1) {
-        preferencias[indice] = { nombre, colorFondo, colorLetra };
-    } else {
-        // Si no se encuentra la preferencia, simplemente la añade
-        preferencias.push({ nombre, colorFondo, colorLetra });
+    if (index !== -1) {
+        preferencias[index] = { ...preferencias[index], nombre, colorFondo, colorLetra };
+        localStorage.setItem("preferencias", JSON.stringify(preferencias));
     }
-    localStorage.setItem("preferencias", JSON.stringify(preferencias));
+    
+    else {
+        console.error("Intentando actualizar una preferencia que no existe.");
+    }
 }
+
+function aplicarPreferencia(nombrePreferencia) {
+    const preferencias = JSON.parse(localStorage.getItem("preferencias"));
+    const preferencia = preferencias.find(pref => pref.nombre === nombrePreferencia);
+
+    if (preferencia) {
+        document.body.style.backgroundColor = preferencia.colorFondo;
+        document.body.style.color = preferencia.colorLetra;
+        // Guarda la preferencia aplicada
+        localStorage.setItem("preferenciaAplicada", JSON.stringify(preferencia));
+    }
+}
+
+function aplicarEstiloInicial() {
+    const preferenciaAplicada = JSON.parse(localStorage.getItem("preferenciaAplicada"));
+    if (preferenciaAplicada) {
+        document.body.style.backgroundColor = preferenciaAplicada.colorFondo;
+        document.body.style.color = preferenciaAplicada.colorLetra;
+    }
+}
+
+// Llama a aplicarEstiloInicial cuando la página se carga
+document.addEventListener('DOMContentLoaded', aplicarEstiloInicial);
