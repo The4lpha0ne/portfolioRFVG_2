@@ -1,0 +1,36 @@
+.input-valido {
+    border: 2px solid green;
+}
+
+.input-invalido {
+    border: 2px solid red;
+}
+
+.icono-validacion {
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+
+.valido .icono-validacion.valido {
+    color: green;
+    display: block;
+}
+
+.invalido .icono-validacion.invalido {
+    color: red;
+    display: block;
+}
+
+
+/* .valido {
+    border: 2px solid green;
+    background-color: #ccffcc;
+}
+
+.invalido {
+    border: 2px solid red;
+    background-color: #ffcccc;
+} */
