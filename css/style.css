@@ -190,7 +190,7 @@ h1, h2, h3 {
     margin: 2rem auto;
 }
 
-.enlace-widget a {
+.enlace-widget .a_2 {
     text-decoration: none; 
     color: red; 
     border: 4px dashed aqua;
@@ -198,7 +198,22 @@ h1, h2, h3 {
     background-color: black;
 }
 
-.enlace-widget a:hover {
+.enlace-widget .a_2:hover {
+    text-decoration: underline; 
+    color: var(--NeonGreen); 
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.enlace-parte2 .a_3 {
+    text-decoration: none; 
+    color: aqua; 
+    border: 4px dashed red;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: black;
+}
+
+.enlace-parte2 .a_3:hover {
     text-decoration: underline; 
     color: var(--NeonGreen); 
     cursor: pointer;

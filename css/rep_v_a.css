@@ -1,0 +1,94 @@
+/* Estilos Generales */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 1vw; /* Usa unidades relativas para el padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1vw 0; /* Ajuste del margen con unidades relativas */
+}
+
+/* Centrar el contenido de video y audio */
+#video-player, #audio-volume-container, #audio-progress-container, #video-playlist-container, #playlist {
+    text-align: center;
+    margin: 20px auto;
+}
+
+video, audio {
+    max-width: 90%; /* Asegura que el contenido multimedia no sea demasiado ancho */
+    margin: 0 auto;
+}
+
+/* Controles de video y audio */
+#video-controls, #audio-volume-container, #audio-progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+input[type="range"] {
+    cursor: pointer;
+}
+
+/* Lista de reproducción */
+#video-playlist-container, #playlist {
+    margin-top: 20px;
+}
+
+select {
+    background-color: #333;
+    color: white;
+    border: 1px solid #666;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+
+select:hover {
+    border-color: #888;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 2vw; /* Aumenta el padding en pantallas más pequeñas */
+    }
+    
+    video, audio {
+        max-width: 95%; /* Permite que el contenido multimedia ocupe más espacio en pantallas pequeñas */
+    }
+    
+    #video-controls, #audio-volume-container, #audio-progress-container {
+        gap: 5px; /* Reduce el espacio entre controles para pantallas pequeñas */
+        padding: 0 10px; /* Añade un poco de padding para evitar que los controles toquen los bordes */
+    }
+
+    button {
+        padding: 5px; /* Reduce el tamaño del padding en los botones para ahorrar espacio */
+        font-size: 0.8rem; /* Reduce el tamaño de la fuente en los botones */
+    }
+
+    select {
+        padding: 3px; /* Reduce el padding de los selectores para que ocupen menos espacio */
+        font-size: 0.8rem; /* Ajusta el tamaño de la fuente para los selectores */
+    }
+}
