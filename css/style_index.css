@@ -1715,3 +1715,60 @@ label {
 /****************************************************************************************************/
 /****************************************************************************************************/
 /****************************************************************************************************/
+
+#preferencias {
+    text-decoration: none;
+    color: aqua;
+    border: 4px dashed red;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: black;
+}
+
+#preferencias:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+/* #map {
+    height: 400px;
+    width: 600px;
+    border-radius: 8px;
+} */
+
+#map {
+    height: 400px; /* Altura fija para el mapa, pero puedes ajustarla según necesites */
+    width: 100%; /* Hace que el mapa ocupe el 100% del ancho de su contenedor padre */
+    border-radius: 3rem; /* Mantiene los bordes redondeados */
+    /* transition: box-shadow 0.3s ease-in-out;  */
+}
+
+/* Estilo para agregar sombra al mapa al pasar el mouse (hover) */
+/* #map:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+} */
+
+/* Media queries para ajustar el mapa según el tamaño de la pantalla */
+@media only screen and (max-width: 1610px) {
+    #map {
+        height: 350px; /* Ajusta la altura del mapa según el tamaño de la pantalla */
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    #map {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 835px) {
+    #map {
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #map {
+        height: 200px;
+    }
+}

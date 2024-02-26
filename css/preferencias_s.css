@@ -287,11 +287,11 @@ footer {
 /* Estilos para pantallas grandes (escritorios) */
 @media (min-width: 1200px) {
     body {
-        font-size: 18px; /* Tamaño de fuente más grande para facilitar la lectura */
+        font-size: 18px;
     }
 
     #saludo-usuario, #titulo-formulario {
-        font-size: 30px; /* Hacer los títulos más grandes */
+        font-size: 30px;
     }
 }
 
@@ -306,33 +306,33 @@ footer {
     }
 
     .contenedor1, .contenedor2, .contenedor3 {
-        padding: 10px; /* Más espacio dentro de los contenedores */
+        padding: 10px;
     }
 }
 
 /* Estilos para dispositivos móviles o pantallas pequeñas */
 @media (max-width: 767px) {
     body {
-        font-size: 14px; /* Reducir el tamaño de fuente para ahorrar espacio */
-        padding: 2px; /* Reducir el padding para utilizar mejor el espacio */
-        border-radius: 5rem; /* Radio de borde más pequeño */
+        font-size: 14px; 
+        padding: 2px; 
+        border-radius: 5rem; 
     }
 
     #saludo-usuario, #titulo-formulario {
-        font-size: 24px; /* Títulos más pequeños */
+        font-size: 24px; 
     }
 
     .contenedor1, .contenedor2, .contenedor3 {
-        flex-direction: column; /* Organizar los elementos en columna */
+        flex-direction: column; 
     }
 
     .boton_usar, .boton_editar, .boton_eliminar, #aniadir-preferencia, .guardar_p {
-        padding: 10px; /* Ajustar el padding para botones más pequeños */
-        font-size: 14px; /* Tamaño de fuente más pequeño para los botones */
-        margin-bottom: 10px; /* Más margen entre botones */
+        padding: 10px; 
+        font-size: 14px; 
+        margin-bottom: 10px; 
     }
 
     a.a_1, button {
-        font-size: 14px; /* Reducir el tamaño de fuente para enlaces y botones */
+        font-size: 14px; 
     }
 }

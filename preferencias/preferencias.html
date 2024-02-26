@@ -2,9 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Preferencias del Usuario</title>
+
+    <!-- Compatibilidad con Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- ---------------------------------------- -->
+
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícono para la pestaña del navegador -->
+    <link rel="icon" href="../img/RFVG.png" type="image/x-icon">
+    <!-- ---------------------------------------- -->
+
     <link rel="stylesheet" href="../css/preferencias_s.css">
+    <title>Preferencias del Usuario</title>
+
+    <!-- ---------------------------------------- -->
     <script src="../js/preferencias.js" defer></script>
+    <script src="../js/cookies.js"></script>
+
+    <!------------------------------------------------------------>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" 
+    rel="stylesheet">
 </head>
 <body>
     <div id="saludo-usuario"></div>
@@ -12,7 +33,7 @@
 
     <div id="lista-preferencias"></div>
     <div class="linea_horizontal2"></div>
-    
+
     <button id="aniadir-preferencia" onclick="window.location.href='./add_preferencia.html'">Añadir Preferencia</button>
     <a class="a_1" href="../index.html">Volver a la página principal</a>
 
