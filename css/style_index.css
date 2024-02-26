@@ -202,7 +202,7 @@ h1, h2, h3 {
     text-decoration: underline; 
     color: var(--NeonGreen); 
     cursor: pointer;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 .enlace-parte2 .a_3 {
@@ -217,7 +217,7 @@ h1, h2, h3 {
     text-decoration: underline; 
     color: var(--NeonGreen); 
     cursor: pointer;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 /* @media only screen and (max-width: 1600px) {

@@ -1,14 +1,86 @@
+/* Aplica reglas globales a todos los 
+elementos, incluidos los pseudo-elementos 
+::after y ::before */
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 1%;
+    padding: 0%;
+    border: 0%;
+}
+
+/* Define variables CSS en el ámbito 
+global (:root) */
+:root {
+    --oscuro: #212121;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    /***************************/
+    --Charcoal: #36454F; 
+    --DeepBlue: #0021f3; 
+    --BlueViolet: #8a2be2; 
+    --NeonGreen: #39ff14; 
+    --MalachiteGreen: #0BDA51; 
+    --CrimsonRed: #990000; 
+    --DeepOrange: #dc4d01;
+    --LightBlue: #87CEEB;
+    --Brown2: #964B00;
+    --DeepPink: #ff1493;
+    --Gold2: #ffbf00;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+/* width */
+/* ::-webkit-scrollbar {
+    width: auto;
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track-piece {
+    background: black;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: var(--NeonGreen);
+    border-radius: 10px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: aqua;
+} */
+
+html, body {
+    overflow-x: hidden;
+    scrollbar-color: #006ee6 #000000;
+    scrollbar-width: auto;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+
+/* Establece el tamaño de fuente 
+base para el documento HTML */
+html {
+    font-size: 62.5%;
+}
+
 /* Estilos Generales */
 body {
+    font-family: 'Sono', sans-serif;
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
-    padding: 1vw; /* Usa unidades relativas para el padding */
+    /* padding: 1vw; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 1vw 0; /* Ajuste del margen con unidades relativas */
+    /* margin: 1vw 0; */
+    margin: 0;
 }
 
 /* Centrar el contenido de video y audio */
@@ -91,4 +163,11 @@ select:hover {
         padding: 3px; /* Reduce el padding de los selectores para que ocupen menos espacio */
         font-size: 0.8rem; /* Ajusta el tamaño de la fuente para los selectores */
     }
+}
+
+.linea_horizontal2 {
+    margin: 0 auto;
+    width: 90%; 
+    height: 4px;
+    background-color: white; 
 }
