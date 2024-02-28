@@ -71,9 +71,9 @@ window.onload = () => {
         // contrario, asigna 'AM'
         const amPm = now.getHours() >= 12 ? 'PM' : 'AM';
 
-        // 15. Obtiene la hora en formato de 12 horas. Usa el módulo 
-        // de 12 para convertir formatos de 24 a 12 horas, 
-        // ajustando las 0 horas a 12
+        // 15. Obtiene la hora en formato de 12 horas. Usa el 
+        // módulo de 12 para convertir formatos de 24 a 12 
+        // horas, ajustando las 0 horas a 12
         const hour = now.getHours() % 12 || 12;
 
         // 16. Obtiene los minutos actuales, asegurándose de que 
@@ -93,7 +93,9 @@ window.onload = () => {
 
         // 18. Muestra un mensaje de bienvenida personalizado 
         // con el nombre del usuario y la fecha actual.
-        alert(`¡Bienvenido/a <<<${consentimientoCookies && nombreUsuario ? nombreUsuario : "Usuario"}>>>, a mi Proyecto Conjunto de DEW y DOR! \nHoy es ${dateString}.`);
+        alert(
+            `¡Bienvenido/a <<<${consentimientoCookies && nombreUsuario ? nombreUsuario : "Usuario"}>>>, a mi Proyecto Conjunto de DEW y DOR! \nHoy es ${dateString}.`
+        );
     }
 };
 
@@ -147,6 +149,7 @@ function getCookie(nombre) {
 
 function redireccionarAPreferencias() {
     let nombreUsuario = getCookie("nombreUsuario");
+    
     // 27. Debido a que "preferencias.html" es la página 
     // que muestra el saludo y las preferencias, y 
     // "add_preferencia.html" es para añadir una nueva 

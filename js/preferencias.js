@@ -16,12 +16,14 @@ function mostrarSaludoUsuario() {
     // 4. Si el nombre del usuario existe, muestra un 
     // saludo personalizado.
     if (nombreUsuario) {
-        saludo.innerText = `¡Bienvenido de nuevo, <<<${nombreUsuario}>>>!`;
+        saludo.innerText = 
+        `¡Bienvenido de nuevo, <<<${nombreUsuario}>>>!`;
     } 
     
     else {
         // 5. Si no, muestra un saludo genérico.
-        saludo.innerText = "¡Bienvenido Usuario, a la página de preferencias!";
+        saludo.innerText = 
+        "¡Bienvenido Usuario, a la página de preferencias!";
     }
 }
 
@@ -31,13 +33,19 @@ function mostrarPreferencias() {
     // 7. Inicializa localStorage con un arreglo vacío si 
     // es la primera vez.
     if (!localStorage.getItem("preferencias")) {
-        localStorage.setItem("preferencias", JSON.stringify([]));
+        localStorage.setItem(
+            "preferencias", 
+            JSON.stringify([])
+        );
     }
 
     // 8. Obtiene las preferencias guardadas y las muestra 
     // en la página.
-    const preferencias = JSON.parse(localStorage.getItem("preferencias"));
-    const listaPreferencias = document.getElementById("lista-preferencias");
+    const preferencias = 
+    JSON.parse(localStorage.getItem("preferencias"));
+
+    const listaPreferencias = 
+    document.getElementById("lista-preferencias");
 
     // 9. Si hay preferencias guardadas, las muestra en 
     // una lista.
@@ -57,7 +65,8 @@ function mostrarPreferencias() {
     else {
         // 10. Si no hay preferencias, muestra un mensaje 
         // indicándolo.
-        listaPreferencias.innerHTML = "No hay preferencias guardadas.";
+        listaPreferencias.innerHTML = 
+        "No hay preferencias guardadas.";
     }
 }
 
@@ -65,35 +74,54 @@ function mostrarPreferencias() {
 // para su edición.
 function cargarPreferencia(nombrePreferencia) {
     // 12. Obtiene las preferencias guardadas.
-    const preferencias = JSON.parse(localStorage.getItem("preferencias"));
+    const preferencias = 
+    JSON.parse(localStorage.getItem("preferencias"));
 
     // 13. Encuentra la preferencia específica por 
     // su nombre.
-    const preferencia = preferencias.find(pref => pref.nombre === nombrePreferencia);
+    const preferencia = 
+    preferencias.find(
+        pref => pref.nombre === nombrePreferencia
+    );
 
-    // 14. Si la preferencia existe, guarda los datos para su edición 
-    // y redirige al usuario.
+    // 14. Si la preferencia existe, guarda los datos para 
+    // su edición y redirige al usuario.
     if (preferencia) {
-        // 15. Redirige al usuario al formulario de edición con 
-        // los datos de la preferencia.
-        localStorage.setItem('preferenciaActual', JSON.stringify({id: preferencia.id, ...preferencia}));
+        // 15. Redirige al usuario al formulario de edición 
+        // con los datos de la preferencia.
+        localStorage.setItem(
+            'preferenciaActual', 
+            JSON.stringify(
+                {id: preferencia.id, ...preferencia}
+            )
+        );
         window.location.href = 'add_preferencia.html';
     }
 }
 
 // 16. Función para eliminar una preferencia específica.
 function eliminarPreferencia(nombrePreferencia) {
-    // 17. Confirma si el usuario realmente desea eliminar 
-    // la preferencia.
-    const confirmacion = confirm(`¿Estás seguro de que deseas eliminar la preferencia "${nombrePreferencia}"?`);
+    // 17. Confirma si el usuario realmente desea 
+    // eliminar la preferencia.
+    const confirmacion = 
+    confirm(
+        `¿Estás seguro de que deseas eliminar la preferencia "${nombrePreferencia}"?`
+    );
     
     if (confirmacion) {
-        let preferencias = JSON.parse(localStorage.getItem("preferencias"));
+        let preferencias = 
+        JSON.parse(localStorage.getItem("preferencias"));
 
         // 18. Filtra la preferencia a eliminar y actualiza 
         // el almacenamiento.
-        preferencias = preferencias.filter(pref => pref.nombre !== nombrePreferencia);
-        localStorage.setItem("preferencias", JSON.stringify(preferencias));
+        preferencias = 
+        preferencias.filter(
+            pref => pref.nombre !== nombrePreferencia
+        );
+
+        localStorage.setItem(
+            "preferencias", JSON.stringify(preferencias)
+        );
 
         // 19. Actualiza la lista de preferencias en 
         // la página
@@ -101,7 +129,8 @@ function eliminarPreferencia(nombrePreferencia) {
     }
 }
 
-// 20. Función para obtener el valor de una cookie por su nombre.
+// 20. Función para obtener el valor de una cookie por 
+// su nombre.
 function getCookie(nombre) {
     let nombreIgual = nombre + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -135,28 +164,41 @@ function aplicarPreferencia(nombrePreferencia) {
     // 23. Si la preferencia existe, aplica los estilos y 
     // muestra un mensaje de confirmación.
     if (preferencia) {
-        alert(`Has elegido aplicar la preferencia "${nombrePreferencia}" con fondo: ${preferencia.colorFondo} y letra: ${preferencia.colorLetra}`);
-        document.body.style.backgroundColor = preferencia.colorFondo;
+        alert(
+            `Has elegido aplicar la preferencia "${nombrePreferencia}" con fondo: ${preferencia.colorFondo} y letra: ${preferencia.colorLetra}`
+        );
+
+        document.body.style.backgroundColor = 
+        preferencia.colorFondo;
+
         document.body.style.color = preferencia.colorLetra;
-        // 24. Guarda la preferencia aplicada para uso futuro.
-        localStorage.setItem("preferenciaAplicada", JSON.stringify(preferencia));
+        // 24. Guarda la preferencia aplicada para uso 
+        // futuro.
+        localStorage.setItem(
+            "preferenciaAplicada", JSON.stringify(preferencia)
+        );
     }
 }
 
 // 25. Función para aplicar el estilo inicial basado en la 
 // preferencia aplicada previamente.
 function aplicarEstiloInicial() {
-    // 26. Verifica si existe una preferencia aplicada y, de ser así, 
-    // aplica sus estilos.
+    // 26. Verifica si existe una preferencia aplicada y, 
+    // de ser así, aplica sus estilos.
     const preferenciaAplicada = 
     JSON.parse(localStorage.getItem("preferenciaAplicada"));
 
     if (preferenciaAplicada) {
-        document.body.style.backgroundColor = preferenciaAplicada.colorFondo;
-        document.body.style.color = preferenciaAplicada.colorLetra;
+        document.body.style.backgroundColor = 
+        preferenciaAplicada.colorFondo;
+
+        document.body.style.color = 
+        preferenciaAplicada.colorLetra;
     }
 }
 
 // 27. Llamar a aplicarEstiloInicial cuando la página 
 // se carga
-document.addEventListener('DOMContentLoaded', aplicarEstiloInicial);
+document.addEventListener(
+    'DOMContentLoaded', aplicarEstiloInicial
+);

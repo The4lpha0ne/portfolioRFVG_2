@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Especifica el icono que se usa para la pestaña del navegador o favoritos -->
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <!-- Especifica el icono que se usa para la pestaña 
+        del navegador o favoritos -->
     <link rel="icon" href="./img/RFVG.png" type="image/x-icon">
-    <!-- Incluye los estilos de Leaflet, una librería de JavaScript para mapas interactivos -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Incluye los estilos de Leaflet, una librería 
+        de JavaScript para mapas interactivos -->
+    <link rel="stylesheet" 
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="./css/style_index.css">
     <title>Portfolio RFVG</title>
 
     <!------------------------------------------------------------>
-    <!-- Preconecta el navegador a Google Fonts para mejorar la carga de las fuentes -->
+    <!-- Preconecta el navegador a Google Fonts para 
+        mejorar la carga de las fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Preconecta el navegador a Google Fonts, incluyendo la política de CORS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Incluye una fuente específica de Google Fonts para el estilo del texto -->
+    <!-- Preconecta el navegador a Google Fonts, incluyendo 
+        la política de CORS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" 
+    crossorigin>
+    <!-- Incluye una fuente específica de Google Fonts para el 
+        estilo del texto -->
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" 
     rel="stylesheet">
 </head>
 <body>
     <noscript>
-        <!-- Contenedor que se muestra solo cuando JavaScript está deshabilitado en el navegador -->
+        <!-- Contenedor que se muestra solo cuando 
+            JavaScript está deshabilitado en el navegador -->
         <div id="js_support">
             Este sitio requiere JavaScript para 
             funcionar correctamente. 
@@ -32,8 +41,10 @@
         </div>
     </noscript>
 
-    <!-- <a href="./preferencias/preferencias.html" id="preferencias">Preferencias</a> -->
-    <a href="#" id="preferencias" onclick="redireccionarAPreferencias()">Preferencias</a>
+    <!-- <a href="./preferencias/preferencias.html" 
+        id="preferencias">Preferencias</a> -->
+    <a href="#" id="preferencias" 
+    onclick="redireccionarAPreferencias()">Preferencias</a>
 
     <header>
         <a href="./index.html" 
@@ -47,9 +58,18 @@
     <div class="nav-bg">
         <nav class="navegacion-principal">
             <a href="./index.html">Sobre Mí</a>
-            <a href="./nav_htmls/skills.html">Habilidades</a>
-            <a href="./nav_htmls/projects.html">Proyectos y Más</a>
-            <a href="./nav_htmls/contact_me.html">CONTACTO</a>
+
+            <a href="./nav_htmls/skills.html">
+                Habilidades
+            </a>
+
+            <a href="./nav_htmls/projects.html">
+                Proyectos y Más
+            </a>
+
+            <a href="./nav_htmls/contact_me.html">
+                CONTACTO
+            </a>
         </nav>        
     </div>
 
@@ -74,18 +94,25 @@
                     oportunidades profesionales futuras.
                 </p>
 
-                <!-- Contenedor para los íconos de redes sociales o contacto -->
+                <!-- Contenedor para los íconos de redes 
+                    sociales o contacto -->
                 <div class="comb_icon">
-                    <!-- Enlace a la aplicación de correo con tu dirección pre-cargada, abre en una nueva pestaña -->
+                    <!-- Enlace a la aplicación de correo con 
+                        tu dirección pre-cargada, abre en una 
+                        nueva pestaña -->
                     <a href="http://mail.google.com/mail?hl=es" 
                     target="_blank" title="richi3fvg@gmail.com">
-                        <!-- Ícono SVG de un correo electrónico, estilizado con clases específicas para su apariencia -->
+                        <!-- Ícono SVG de un correo electrónico, 
+                            estilizado con clases específicas 
+                            para su apariencia -->
                         <svg xmlns="http://www.w3.org/2000/svg" 
                         class="icon icon-tabler icon-tabler-mail email_icon" 
                         width="70" height="70" viewBox="0 0 24 24" 
                         stroke-width="2" stroke="#FFFFFF" fill="none" 
                         stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Define el área de visualización del SVG y el aspecto del ícono del correo -->
+                            <!-- Define el área de visualización 
+                                del SVG y el aspecto del ícono 
+                                del correo -->
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 
                             <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -154,7 +181,8 @@
     </footer>
 
     <!------------------------------------------------------------>
-    <!-- Incluye la librería de Leaflet desde un CDN, permitiendo agregar mapas interactivos -->
+    <!-- Incluye la librería de Leaflet desde un CDN, 
+        permitiendo agregar mapas interactivos -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/cookies.js"></script>

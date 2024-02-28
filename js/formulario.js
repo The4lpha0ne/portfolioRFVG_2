@@ -4,53 +4,59 @@ $(document).ready(function() {
 
     // 2. Definición de la función openDatabase con promesas
     function openDatabase() {
-        // 3. Devuelve una nueva promesa que encapsula la operación 
-        // asincrónica de abrir la base de datos
+        // 3. Devuelve una nueva promesa que encapsula la 
+        // operación asincrónica de abrir la base de datos
         return new Promise((resolve, reject) => {
-            // 4. Intenta abrir una base de datos llamada 'formularioDB' 
-            // con la versión 1
-            const request = window.indexedDB.open('formularioDB', 1);
+            // 4. Intenta abrir una base de datos llamada 
+            // 'formularioDB' con la versión 1
+            const request = 
+            window.indexedDB.open('formularioDB', 1);
 
-            // 5. Este evento se dispara si la base de datos necesita 
-            // ser creada o actualizada a una nueva versión
+            // 5. Este evento se dispara si la base de datos 
+            // necesita ser creada o actualizada a una nueva 
+            // versión
             request.onupgradeneeded = (event) => {
-                // 6. Accede a la base de datos creada o actualizada
+                // 6. Accede a la base de datos creada o 
+                // actualizada
                 const db = event.target.result;
 
-                // 7. Verifica si ya existe un almacén de objetos 
-                // llamado 'formularios'
+                // 7. Verifica si ya existe un almacén de 
+                // objetos llamado 'formularios'
                 if (!db.objectStoreNames.contains('formularios')) {
-                    // 8. Crea un nuevo almacén de objetos 'formularios' 
-                    // con un 'id' autoincrementable como clave primaria
+                    // 8. Crea un nuevo almacén de objetos 
+                    // 'formularios' con un 'id' 
+                    // autoincrementable como clave primaria
                     const store = 
                     db.createObjectStore(
                         'formularios', 
                         { keyPath: 'id', autoIncrement: true }
                     );
 
-                    // 9. Crea un índice llamado 'nombre' para facilitar 
-                    // la búsqueda por este campo, permitiendo duplicados 
-                    // (unique: false)
-                    store.createIndex('nombre', 'nombre', { unique: false });
+                    // 9. Crea un índice llamado 'nombre' para 
+                    // facilitar la búsqueda por este campo, 
+                    // permitiendo duplicados (unique: false)
+                    store.createIndex(
+                        'nombre', 'nombre', { unique: false }
+                    );
                 }
             };
 
-            // 10. Este evento se dispara cuando la base de datos se ha 
-            // abierto con éxito
+            // 10. Este evento se dispara cuando la base de 
+            // datos se ha abierto con éxito
             request.onsuccess = (event) => {
-                // 11. Se asigna la base de datos abierta a la variable 
-                // db
+                // 11. Se asigna la base de datos abierta a 
+                // la variable db
                 db = event.target.result;
-                // 12. Resuelve la promesa con la base de datos como 
-                // valor
+                // 12. Resuelve la promesa con la base de 
+                // datos como valor
                 resolve(db);
             };
 
-            // 13.Este evento se dispara si hay un error al abrir la base 
-            /// de datos
+            // 13.Este evento se dispara si hay un error al 
+            // abrir la base de datos
             request.onerror = (event) => {
-                // 14. Rechaza la promesa con un objeto Error que contiene 
-                // información sobre el error
+                // 14. Rechaza la promesa con un objeto Error 
+                // que contiene información sobre el error
                 reject(new Error(
                     `Error al abrir la base de datos: ${event.target.errorCode}`
                 ));
@@ -61,9 +67,13 @@ $(document).ready(function() {
     // 15. Confirmación de IndexDB
     window.onload = function() {
         openDatabase().then((db) => {
-            console.log('Base de datos abierta exitosamente', db);
+            console.log(
+                'Base de datos abierta exitosamente', db
+            );
         }).catch((error) => {
-            console.error('Error al abrir la base de datos', error);
+            console.error(
+                'Error al abrir la base de datos', error
+            );
         });
     };
 
@@ -71,19 +81,24 @@ $(document).ready(function() {
     class FormValidator {
         // 17. CONSTRUCTOR de la clase
         constructor(formId) {
-            // 18. Asigna el formulario a una propiedad de la clase
+            // 18. Asigna el formulario a una propiedad 
+            // de la clase
             this.form = document.getElementById(formId);
             // 19. Configura manejadores de eventos
             this.setupEventHandlers();
-            // Vincula el contexto 'this' al método 'handleSubmit'
+            // Vincula el contexto 'this' al método 
+            // 'handleSubmit'
             this.handleSubmit = this.handleSubmit.bind(this);
         }
 
-        // 20. Método adicional para configurar manejador del botón 
-        // 'Limpiar'
+        // 20. Método adicional para configurar manejador 
+        // del botón 'Limpiar'
         setupResetEventHandler() {
-            const resetButton = this.form.querySelector('input[type="reset"]');
-            // 21. Si el botón existe, añade un evento de 'click'
+            const resetButton = 
+            this.form.querySelector('input[type="reset"]');
+
+            // 21. Si el botón existe, añade un evento de 
+            // 'click'
             if (resetButton) {
                 resetButton.addEventListener(
                     'click', (event) => this.handleReset(event)
@@ -93,65 +108,92 @@ $(document).ready(function() {
 
         handleReset(event) {
             try {
-                const inputs = this.form.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], textarea');
-                const allEmpty = Array.from(inputs).every(input => input.value === '');
+                const inputs = 
+                this.form.querySelectorAll(
+                    'input[type="text"], input[type="tel"], input[type="email"], textarea'
+                );
+
+                const allEmpty = 
+                Array.from(inputs).every(
+                    input => input.value === ''
+                );
+
                 if (allEmpty) {
                     alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
                     event.preventDefault();
                 }
-            } catch (error) {
+            } 
+            
+            catch (error) {
                 console.error('Error inesperado:', error);
-                alert('Ocurrió un error al intentar limpiar el formulario.');
+                alert(
+                    'Ocurrió un error al intentar limpiar el formulario.'
+                );
                 event.preventDefault();
             }
         }        
 
         // 28. Método para configurar manejadores de eventos
         setupEventHandlers() {
-            // 29. Asigna un manejador de eventos 'onsubmit' al 
-            // formulario
-            this.form.onsubmit = (event) => this.handleSubmit(event);
+            // 29. Asigna un manejador de eventos 'onsubmit' 
+            // al formulario
+            this.form.onsubmit = 
+            (event) => this.handleSubmit(event);
 
-            // 30. Configura el manejador para el botón 'Limpiar'
+            // 30. Configura el manejador para el botón 
+            // 'Limpiar'
             this.setupResetEventHandler();
 
-            // 31. Añade manejadores de eventos 'keyup' para cada 
-            // campo de entrada
+            // 31. Añade manejadores de eventos 'keyup' para 
+            // cada campo de entrada
             this.form.querySelector(
                 '#nombre'
-            ).addEventListener('keyup', () => this.validateNombreOnKeyup());
+            ).addEventListener(
+                'keyup', () => this.validateNombreOnKeyup()
+            );
 
             this.form.querySelector(
                 '#tlf'
-            ).addEventListener('keyup', () => this.validateTelefonoOnKeyup());
+            ).addEventListener(
+                'keyup', () => this.validateTelefonoOnKeyup()
+            );
 
             this.form.querySelector(
                 '#email'
-            ).addEventListener('keyup', () => this.validateEmailOnKeyup());
+            ).addEventListener(
+                'keyup', () => this.validateEmailOnKeyup()
+            );
 
             this.form.querySelector(
                 '#mensaje'
-            ).addEventListener('keyup', () => this.validateMensajeOnKeyup());
+            ).addEventListener(
+                'keyup', () => this.validateMensajeOnKeyup()
+            );
         }
 
-        // 32. Métodos para validación individual en eventos 
-        // 'keyup'
+        // 32. Métodos para validación individual en 
+        // eventos 'keyup'
         validateNombreOnKeyup() {
-            // 33. Obtiene el valor actual del campo 'nombre'
-            var nombre = this.form.querySelector('#nombre').value;
-            // 34. Valida el nombre si cumple ciertas condiciones
+            // 33. Obtiene el valor actual del campo 
+            // 'nombre'
+            var nombre = 
+            this.form.querySelector('#nombre').value;
+
+            // 34. Valida el nombre si cumple ciertas 
+            // condiciones
             if (nombre.length >= 3 || /\d/.test(nombre)) {
                 this.validateNombre(nombre);
             }
         }
 
         validateTelefonoOnKeyup() {
-            // 35. Obtiene el valor actual del campo 'teléfono'
+            // 35. Obtiene el valor actual del campo 
+            // 'teléfono'
             var telefono = 
             this.form.querySelector('#tlf').value;
 
-            // 36. Modifica la validación para que utilice la 
-            // expresión regular desde el principio
+            // 36. Modifica la validación para que utilice 
+            // la expresión regular desde el principio
             var regexTelefono = /^\+?[0-9]{9,15}$/;
             if (telefono.length >= 9 && 
                 regexTelefono.test(telefono)
@@ -161,10 +203,13 @@ $(document).ready(function() {
         }
 
         validateEmailOnKeyup() {
-            // 37. Obtiene el valor actual del campo 'email'
-            var email = this.form.querySelector('#email').value;
-            // 38. Valida el email si termina en .com, .es, .org 
-            // o .net
+            // 37. Obtiene el valor actual del campo 
+            // 'email'
+            var email = 
+            this.form.querySelector('#email').value;
+
+            // 38. Valida el email si termina en .com, 
+            // .es, .org o .net
             if (/\.(com|es|org|net)$/.test(email)) {
                 this.validateEmail(email);
             }
@@ -209,7 +254,8 @@ $(document).ready(function() {
         }
 
         validateTelefono(telefono) {
-            // 50. Mantiene la expresión regular para el teléfono
+            // 50. Mantiene la expresión regular para el 
+            // teléfono
             var regexTelefono = /^\+?[0-9]{9,15}$/;
 
             // 51. La validación del teléfono permanece igual, 
@@ -223,8 +269,8 @@ $(document).ready(function() {
             return true;
         }
 
-        // 52. Método para validar el email usando una expresión 
-        // regular
+        // 52. Método para validar el email usando una 
+        // expresión regular
         validateEmail(email) {
             // 53. Define la expresión regular para el email
             var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -273,25 +319,28 @@ $(document).ready(function() {
             return true;
         }
 
-        // 60. Función para almacenar los datos del formulario en 
-        // IndexedDB
+        // 60. Función para almacenar los datos del formulario 
+        // en IndexedDB
         storeFormData(formData) {
-            // 61. Inicia una transacción de lectura/escritura en 
-            // la base de datos para el almacenamiento 'formularios'
+            // 61. Inicia una transacción de lectura/escritura 
+            // en la base de datos para el almacenamiento 
+            // 'formularios'
             let transaction = 
             db.transaction(['formularios'], 'readwrite');
 
-            // 62. Accede al almacenamiento de objetos 'formularios' 
-            // dentro de la transacción
+            // 62. Accede al almacenamiento de objetos 
+            // 'formularios' dentro de la transacción
             let store = transaction.objectStore('formularios');
 
-            // 63. Crea una solicitud para añadir los datos del 
-            // formulario al almacenamiento de objetos
+            // 63. Crea una solicitud para añadir los datos 
+            // del formulario al almacenamiento de objetos
             let request = store.add(formData);
         
-            // 64. Gestiona el evento de éxito de la solicitud
+            // 64. Gestiona el evento de éxito de la 
+            // solicitud
             request.onsuccess = () => {
-                // 65. Imprime un mensaje de éxito en la consola
+                // 65. Imprime un mensaje de éxito en la 
+                // consola
                 console.log(
                     'Datos del formulario almacenados correctamente.'
                 );
@@ -302,16 +351,20 @@ $(document).ready(function() {
                 // 67. Imprime un mensaje de error en la consola 
                 // si ocurre un problema al almacenar los datos
                 console.error(
-                    'Error al almacenar los datos del formulario:', e.target.error
+                    'Error al almacenar los datos del formulario:', 
+                    e.target.error
                 );
             };
         } 
 
         handleSubmit(event) {
-            // Previene el comportamiento por defecto para tener control total sobre la validación y el envío.
+            // Previene el comportamiento por defecto para 
+            // tener control total sobre la validación y el 
+            // envío.
             event.preventDefault();
 
-            // Recupera y almacena los valores de los campos del formulario
+            // Recupera y almacena los valores de los campos 
+            // del formulario
             var nombre = document.getElementById('nombre').value;
             var telefono = document.getElementById('tlf').value;
             var email = document.getElementById('email').value;
@@ -323,13 +376,21 @@ $(document).ready(function() {
                 this.validateEmail(email) && 
                 this.validateMensajeLength(mensaje)
             ) {
-                // Si todas las validaciones son correctas, se procede a almacenar los datos en IndexedDB
-                this.storeFormData({nombre, telefono, email, mensaje});
+                // Si todas las validaciones son correctas, 
+                // se procede a almacenar los datos en IndexedDB
+                this.storeFormData(
+                    {nombre, telefono, email, mensaje}
+                );
 
-                // Preparación de los datos del formulario para el envío
-                var formData = new FormData(document.getElementById('contactForm'));
+                // Preparación de los datos del formulario para 
+                // el envío
+                var formData = 
+                new FormData(
+                    document.getElementById('contactForm')
+                );
                 
-                // Envía los datos del formulario a 'enviarCorreo.php' usando fetch
+                // Envía los datos del formulario a 
+                // 'enviarCorreo.php' usando fetch
                 fetch('enviarCorreo.php', {
                     method: 'POST',
                     body: formData
@@ -337,27 +398,36 @@ $(document).ready(function() {
                 .then(response => response.text())
                 .then(data => {
                     // Manejo de la respuesta del servidor
-                    alert("EL FORMULARIO HA SIDO ENVIADO Y ALMACENADO EXITOSAMENTE. ");
+                    alert(
+                        "EL FORMULARIO HA SIDO ENVIADO Y ALMACENADO EXITOSAMENTE. "
+                    );
                     alert(data);
                 })
                 .catch((error) => {
                     // Manejo de errores durante el envío
                     console.error('Error:', error);
-                    alert("Ocurrió un error al enviar el mensaje al correo escrito.");
+                    alert(
+                        "Ocurrió un error al enviar el mensaje al correo escrito."
+                    );
                 });
-            } else {
-                // Si alguna validación falla, muestra un mensaje de error y termina la función
+            } 
+            
+            else {
+                // Si alguna validación falla, muestra un 
+                // mensaje de error y termina la función
                 alert('ERROR');
                 return false;
             }
         }
     }
 
-    // Creación de una instancia de FormValidator para el formulario con ID 'contactForm'
+    // Creación de una instancia de FormValidator para 
+    // el formulario con ID 'contactForm'
     new FormValidator('contactForm');
     // const myFormValidator = new FormValidator('contactForm');
 
-    // Añades el manejador de eventos al formulario, usando la instancia de tu clase.
+    // Añades el manejador de eventos al formulario, 
+    // usando la instancia de tu clase.
     // document.getElementById('contactForm').addEventListener('submit', function(event) {
     //     event.preventDefault();
     //     myFormValidator.handleSubmit(event);
@@ -365,15 +435,16 @@ $(document).ready(function() {
 
     function setupjQueryAnimations() {
         $('input[type="reset"]').click(function(event) {
-            // 69. Comprobación si el formulario está vacío antes 
-            // de resetear
+            // 69. Comprobación si el formulario está vacío 
+            // antes de resetear
             var isFormEmpty = 
             $('#nombre').val() === '' && $('#tlf').val() === 
-            '' && $('#email').val() === '' && $('#mensaje').val() === '';
+            '' && $('#email').val() === 
+            '' && $('#mensaje').val() === '';
 
             if (!isFormEmpty) {
-                // 70. Animación para el botón reset: cambio de 
-                // opacidad, tamaño y rotación
+                // 70. Animación para el botón reset: cambio 
+                // de opacidad, tamaño y rotación
                 $(this).animate({
                     opacity: 0.5,
                     height: "+=10",
@@ -398,7 +469,9 @@ $(document).ready(function() {
                         transform: 'rotate(0deg)' 
                     });
                 }, 500);
-            } else {
+            } 
+            
+            else {
                 alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
                 event.preventDefault();
             }

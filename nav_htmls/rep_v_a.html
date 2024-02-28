@@ -8,7 +8,8 @@
 
     <!------------------------------------------------------------>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" 
+    crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" 
     rel="stylesheet">
 </head>
@@ -16,37 +17,55 @@
     <h1>Reproductor de Video</h1>
 
     <div id="video-player">
-        <!-- Elemento de video con controles y precarga de metadatos -->
-        <video id="video" width="640" height="360" controls preload="metadata">
-            <source src="../videos/Berserk_1997_op.mp4" type="video/mp4">
-            <!-- Mensaje alternativo para navegadores que no soportan 
-                el elemento video de HTML5 -->
+        <!-- Elemento de video con controles y precarga de 
+            metadatos -->
+        <video id="video" width="640" height="360" 
+        controls preload="metadata">
+            <source src="../videos/Berserk_1997_op.mp4" 
+            type="video/mp4">
+            <!-- Mensaje alternativo para navegadores que 
+                no soportan el elemento video de HTML5 -->
             Tu navegador no soporta HTML5 video.
-        </video>    
+        </video> 
+
         <div id="video-controls">
             <button id="play-pause">Play</button>
             <button id="stop">Stop</button>
             <button id="rewind">Rewind -10s</button>
             <button id="fast-forward">Forward +10s</button>
+
             <label for="volume-control">Volume:</label>
-            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1" title="Volumen">
+            <input type="range" id="volume-control" 
+            min="0" max="1" step="0.01" value="1" 
+            title="Volumen">
+
             <button id="fullscreen">Fullscreen</button>
             <label for="progress-bar">Progress:</label>
             <input type="range" id="progress-bar" value="0">
         </div>
     </div>
 
-    <!-- Contenedor para la lista de reproducción de videos -->
+    <!-- Contenedor para la lista de reproducción de 
+        videos -->
     <div id="video-playlist-container">
         <!-- Selector para cambiar de video -->
-        <select id="video-playlist" onchange="changeVideo(this.value)">
-            <option value="../videos/Berserk_1997_op.mp4">Berserk 1997 - op</option>
-            <option value="../videos/Steins_Gate_op.mp4">Steins;Gate - op</option>
-            <option value="../videos/Chainsaw_Man_op.mp4">Chainsaw Man - op</option>
+        <select id="video-playlist" 
+        onchange="changeVideo(this.value)">
+            <option value="../videos/Berserk_1997_op.mp4">
+                Berserk 1997 - op
+            </option>
+            <option value="../videos/Steins_Gate_op.mp4">
+                Steins;Gate - op
+            </option>
+            <option value="../videos/Chainsaw_Man_op.mp4">
+                Chainsaw Man - op
+            </option>
         </select>
     </div>
     <br>
 
+    <!------------------------------------------------------------>
+    <!------------------------------------------------------------>
     <div class="linea_horizontal2"></div>
     <br>
 
@@ -55,29 +74,47 @@
     <!-- Contenedor para la barra de progreso del audio -->
     <div id="audio-progress-container">
         <label for="progressControl">Progress:</label>
-        <input type="range" id="progressControl" min="0" value="0" step="1" title="Progreso" />
+        <input type="range" id="progressControl" 
+        min="0" value="0" step="1" title="Progreso" />
     </div>
 
     <!-- Selector para cambiar de pista de audio -->
     <select id="playlist" onchange="changeTrack(this.value)">
-        <option value="../audios/Tom_Petty_Love_Is_A_Long_Road.m4a">Tom Petty - Love Is A Long Road</option>
-        <option value="../audios/Metallica_One.m4a">Metallica - One</option>
-        <option value="../audios/Metallica_Fade_To_Black.m4a">Metallica - Fade To Black</option>
+        <option value="../audios/Tom_Petty_Love_Is_A_Long_Road.m4a">
+            Tom Petty - Love Is A Long Road
+        </option>
+        <option value="../audios/Metallica_One.m4a">
+            Metallica - One
+        </option>
+        <option value="../audios/Metallica_Fade_To_Black.m4a">
+            Metallica - Fade To Black
+        </option>
     </select>
 
-        <!-- Reproductor de audio sin controles visibles, solo se controla mediante JavaScript -->
-        <audio id="reproductorDOR" src="../audios/Tom_Petty_Love_Is_A_Long_Road.m4a" preload="metadata"></audio>
-        <div id="audio-volume-container">
-            <button id="playPauseBtn" onclick="togglePlayPause()">Play</button>
-            <button onclick="stopAudio()">Stop</button>
-            <button onclick="rewind10()">Rewind -10s</button>
-            <button onclick="forward10()">Forward +10s</button>
-            <label for="volumeControl">Volume:</label>
-            <input type="range" id="volumeControl" min="0" max="1" step="0.1" onchange="changeVolume(this.value)" title="Volumen" />
-            <button onclick="skipToStart()">Start</button>
-            <button onclick="skipToEnd()">Finish</button>
-        </div>
+    <!-- Reproductor de audio sin controles visibles, 
+        solo se controla mediante JavaScript -->
+    <audio id="reproductorDOR" 
+    src="../audios/Tom_Petty_Love_Is_A_Long_Road.m4a" 
+    preload="metadata"></audio>
 
+    <div id="audio-volume-container">
+        <button id="playPauseBtn" 
+        onclick="togglePlayPause()">Play</button>
+        <button onclick="stopAudio()">Stop</button>
+        <button onclick="rewind10()">Rewind -10s</button>
+        <button onclick="forward10()">Forward +10s</button>
+
+        <label for="volumeControl">Volume:</label>
+        <input type="range" id="volumeControl" 
+        min="0" max="1" step="0.1" 
+        onchange="changeVolume(this.value)" 
+        title="Volumen" />
+
+        <button onclick="skipToStart()">Start</button>
+        <button onclick="skipToEnd()">Finish</button>
+    </div>
+
+    <!------------------------------------------------------------>
     <script src="../js/rep_video.js"></script>
     <script src="../js/rep_audio.js"></script>
 </body>

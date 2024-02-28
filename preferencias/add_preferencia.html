@@ -16,7 +16,8 @@
 
     <!------------------------------------------------------------>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" 
+    crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap" 
     rel="stylesheet">
 </head>
@@ -26,35 +27,52 @@
 
     <form id="formulario-preferencia">
         <div class="contenedor1">
-            <label class="nom_p" for="nombre-preferencia">Nombre de la Preferencia:</label>
-            <input type="text" id="nombre-preferencia" name="nombre-preferencia" required>
+            <label class="nom_p" for="nombre-preferencia">
+                Nombre de la Preferencia:
+            </label>
+            <input type="text" id="nombre-preferencia" 
+            name="nombre-preferencia" required>
         </div>
 
         <div class="contenedor2">
-            <label class="color_f" for="color-fondo">Color de Fondo:</label>
-            <input type="color" id="color-fondo" name="color-fondo" required>
+            <label class="color_f" for="color-fondo">
+                Color de Fondo:
+            </label>
+            <input type="color" id="color-fondo" 
+            name="color-fondo" required>
     
-            <label class="color_l" for="color-letra">Color de Letra:</label>
-            <input type="color" id="color-letra" name="color-letra" required>
+            <label class="color_l" for="color-letra">
+                Color de Letra:
+            </label>
+            <input type="color" id="color-letra" 
+            name="color-letra" required>
         </div>
 
-        <!-- Este campo oculto ayuda a determinar si el formulario se está 
-            utilizando para añadir o editar -->
-        <input type="hidden" id="editando" name="editando" value="false">
+        <!-- Este campo oculto ayuda a determinar si el 
+            formulario se está utilizando para añadir 
+            o editar -->
+        <input type="hidden" id="editando" name="editando" 
+        value="false">
         <br>
 
         <div class="linea_horizontal2"></div>
         <br>
 
         <div class="contenedor3">
-            <button class="guardar_p" type="submit">Guardar Preferencia</button>
-            <button class="b_cancelar" type="button" onclick="cancelar()">Cancelar</button>
+            <button class="guardar_p" type="submit">
+                Guardar Preferencia
+            </button>
+            
+            <button class="b_cancelar" type="button" 
+            onclick="cancelar()">
+                Cancelar
+            </button>
         </div>
     </form>
     <script>
         function cancelar() {
-            // Limpia cualquier preferencia actual en localStorage y 
-            // redirige
+            // Limpia cualquier preferencia actual en 
+            // localStorage y redirige
             localStorage.removeItem('preferenciaActual');
             window.location.href = './preferencias.html';
         }
