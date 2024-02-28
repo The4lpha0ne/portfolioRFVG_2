@@ -1,0 +1,4 @@
+<Files "../nav_htmls/enviarCorreo.php">
+    Allow from all
+    AllowMethods GET POST
+</Files>

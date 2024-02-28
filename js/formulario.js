@@ -75,6 +75,8 @@ $(document).ready(function() {
             this.form = document.getElementById(formId);
             // 19. Configura manejadores de eventos
             this.setupEventHandlers();
+            // Vincula el contexto 'this' al método 'handleSubmit'
+            this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         // 20. Método adicional para configurar manejador del botón 
@@ -89,37 +91,20 @@ $(document).ready(function() {
             }
         }
 
-        // 22. Método para manejar el clic en el botón 'Limpiar'
         handleReset(event) {
-            // 23. Selecciona todos los campos de entrada del 
-            // formulario
-            const inputs = 
-            this.form.querySelectorAll(
-                'input[type="text"], input[type="tel"], input[type="email"], textarea'
-            );
-
-            // 24. Comprueba si todos los campos están vacíos
-            const allEmpty = 
-            Array.from(inputs).every(input => input.value === '');
-
-            // 25. Si todos los campos están vacíos, muestra una 
-            // alerta
-            if (allEmpty) {
-                alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
-                // 26. Impide que el formulario se limpie
+            try {
+                const inputs = this.form.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], textarea');
+                const allEmpty = Array.from(inputs).every(input => input.value === '');
+                if (allEmpty) {
+                    alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
+                    event.preventDefault();
+                }
+            } catch (error) {
+                console.error('Error inesperado:', error);
+                alert('Ocurrió un error al intentar limpiar el formulario.');
                 event.preventDefault();
             }
-        } 
-        
-        catch (error) {
-            // 27. Manejo de cualquier error inesperado
-            console.error('Error inesperado:', error);
-
-            alert(
-                'Ocurrió un error al intentar limpiar el formulario.'
-            );
-            event.preventDefault();
-        }
+        }        
 
         // 28. Método para configurar manejadores de eventos
         setupEventHandlers() {
@@ -200,42 +185,6 @@ $(document).ready(function() {
                 alert(
                     'Por favor, no uses lenguaje inapropiado en tu mensaje.'
                 );
-            }
-        }
-
-        // 41. Método para manejar la presentación del 
-        // formulario
-        handleSubmit(event) {
-            // 42. Previene el comportamiento por defecto para tener 
-            // control total sobre la validación y el envío.
-            event.preventDefault(); 
-
-            // 43. Recupera y almacena los valores de los campos 
-            // del formulario
-            var nombre = document.getElementById('nombre').value;
-            var telefono = document.getElementById('tlf').value;
-            var email = document.getElementById('email').value;
-            var mensaje = document.getElementById('mensaje').value;
-
-            // 44. Realiza la validación de cada campo
-            if (this.validateNombre(nombre) && 
-                this.validateTelefono(telefono) && 
-                this.validateEmail(email) && 
-                this.validateMensajeLength(mensaje)
-            ) {
-                // 45. Si todas las validaciones son correctas, 
-                // se procede a almacenar los datos en IndexedDB
-                this.storeFormData({nombre, telefono, email, mensaje});
-
-                alert(
-                    'EL FORMULARIO HA SIDO ENVIADO Y ALMACENADO EXITOSAMENTE.'
-                );
-            } 
-            
-            else {
-                // 46. Si alguna validación falla, simplemente 
-                // termina la función sin enviar el formulario
-                return false;
             }
         }
 
@@ -356,12 +305,63 @@ $(document).ready(function() {
                     'Error al almacenar los datos del formulario:', e.target.error
                 );
             };
-        }    
+        } 
+
+        handleSubmit(event) {
+            // Previene el comportamiento por defecto para tener control total sobre la validación y el envío.
+            event.preventDefault();
+
+            // Recupera y almacena los valores de los campos del formulario
+            var nombre = document.getElementById('nombre').value;
+            var telefono = document.getElementById('tlf').value;
+            var email = document.getElementById('email').value;
+            var mensaje = document.getElementById('mensaje').value;
+
+            // Realiza la validación de cada campo
+            if (this.validateNombre(nombre) && 
+                this.validateTelefono(telefono) && 
+                this.validateEmail(email) && 
+                this.validateMensajeLength(mensaje)
+            ) {
+                // Si todas las validaciones son correctas, se procede a almacenar los datos en IndexedDB
+                this.storeFormData({nombre, telefono, email, mensaje});
+
+                // Preparación de los datos del formulario para el envío
+                var formData = new FormData(document.getElementById('contactForm'));
+                
+                // Envía los datos del formulario a 'enviarCorreo.php' usando fetch
+                fetch('enviarCorreo.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Manejo de la respuesta del servidor
+                    alert("EL FORMULARIO HA SIDO ENVIADO Y ALMACENADO EXITOSAMENTE. ");
+                    alert(data);
+                })
+                .catch((error) => {
+                    // Manejo de errores durante el envío
+                    console.error('Error:', error);
+                    alert("Ocurrió un error al enviar el mensaje al correo escrito.");
+                });
+            } else {
+                // Si alguna validación falla, muestra un mensaje de error y termina la función
+                alert('ERROR');
+                return false;
+            }
+        }
     }
 
-    // 68. Creación de una instancia de FormValidator para 
-    // el formulario con ID 'contactForm'
+    // Creación de una instancia de FormValidator para el formulario con ID 'contactForm'
     new FormValidator('contactForm');
+    // const myFormValidator = new FormValidator('contactForm');
+
+    // Añades el manejador de eventos al formulario, usando la instancia de tu clase.
+    // document.getElementById('contactForm').addEventListener('submit', function(event) {
+    //     event.preventDefault();
+    //     myFormValidator.handleSubmit(event);
+    // });
 
     function setupjQueryAnimations() {
         $('input[type="reset"]').click(function(event) {
@@ -405,10 +405,7 @@ $(document).ready(function() {
         });
     }
     
-    // 76. Espera a que el documento esté completamente cargado
-    $(document).ready(function() {
-        // 77. Llama a la función setupjQueryAnimations una vez 
-        // que el documento está listo
-        setupjQueryAnimations();
-    }); 
+    // 77. Llama a la función setupjQueryAnimations una vez 
+    // que el documento está listo
+    setupjQueryAnimations();
 });
