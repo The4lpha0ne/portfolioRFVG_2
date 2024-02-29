@@ -106,18 +106,53 @@ $(document).ready(function() {
             }
         }
 
+        // handleReset(event) {
+        //     try {
+        //         const inputs = 
+        //         this.form.querySelectorAll(
+        //             'input[type="text"], input[type="tel"], input[type="email"], textarea'
+        //         );
+
+        //         const allEmpty = 
+        //         Array.from(inputs).every(
+        //             input => input.value === ''
+        //         );
+
+        //         if (allEmpty) {
+        //             alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
+        //             event.preventDefault();
+        //         }
+        //     } 
+            
+        //     catch (error) {
+        //         console.error('Error inesperado:', error);
+        //         alert(
+        //             'Ocurrió un error al intentar limpiar el formulario.'
+        //         );
+        //         event.preventDefault();
+        //     }
+        // }        
+
         handleReset(event) {
             try {
                 const inputs = 
                 this.form.querySelectorAll(
                     'input[type="text"], input[type="tel"], input[type="email"], textarea'
                 );
-
-                const allEmpty = 
-                Array.from(inputs).every(
-                    input => input.value === ''
-                );
-
+                
+                // Se asume inicialmente que todos los campos están vacíos
+                let allEmpty = true; 
+        
+                // Se usa forEach para iterar sobre cada input y comprobar 
+                // si alguno tiene contenido
+                Array.from(inputs).forEach(input => {
+                    if (input.value !== '') {
+                        // Si se encuentra un campo no vacío, se cambia 
+                        // allEmpty a false
+                        allEmpty = false; 
+                    }
+                });
+        
                 if (allEmpty) {
                     alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
                     event.preventDefault();
@@ -126,12 +161,11 @@ $(document).ready(function() {
             
             catch (error) {
                 console.error('Error inesperado:', error);
-                alert(
-                    'Ocurrió un error al intentar limpiar el formulario.'
-                );
+                alert('Ocurrió un error al intentar limpiar el formulario.');
                 event.preventDefault();
             }
-        }        
+        }
+        
 
         // 28. Método para configurar manejadores de eventos
         setupEventHandlers() {
@@ -433,46 +467,103 @@ $(document).ready(function() {
     //     myFormValidator.handleSubmit(event);
     // });
 
+    // function setupjQueryAnimations() {
+    //     $('input[type="reset"]').click(function(event) {
+
+    //         var isFormEmpty = 
+    //         $('#nombre').val() === '' && $('#tlf').val() === 
+    //         '' && $('#email').val() === 
+    //         '' && $('#mensaje').val() === '';
+
+    //         if (!isFormEmpty) {
+
+    //             $(this).animate({
+    //                 opacity: 0.5,
+    //                 height: "+=10",
+    //                 width: "+=10"
+    //             }, 500).css({
+
+    //                 transform: 'rotate(10deg)' 
+    //             });
+    
+
+    //             setTimeout(() => {
+    //                 $(this).animate({
+    //                     opacity: 1, 
+
+    //                     height: "-=10", 
+
+    //                     width: "-=10" 
+    //                 }, 500).css({
+
+    //                     transform: 'rotate(0deg)' 
+    //                 });
+    //             }, 500);
+    //         } 
+            
+    //         else {
+    //             alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
+    //             event.preventDefault();
+    //         }
+    //     });
+    // }
+
     function setupjQueryAnimations() {
         $('input[type="reset"]').click(function(event) {
-            // 69. Comprobación si el formulario está vacío 
-            // antes de resetear
+            // Comprobación si el formulario está vacío antes de resetear
             var isFormEmpty = 
-            $('#nombre').val() === '' && $('#tlf').val() === 
-            '' && $('#email').val() === 
-            '' && $('#mensaje').val() === '';
-
+            $('#nombre').val() === '' && $('#tlf').val() === '' &&
+            $('#email').val() === '' && $('#mensaje').val() === '';
+    
             if (!isFormEmpty) {
-                // 70. Animación para el botón reset: cambio 
-                // de opacidad, tamaño y rotación
+                // Animación para el botón reset: cambio de opacidad, tamaño y rotación
                 $(this).animate({
                     opacity: 0.5,
                     height: "+=10",
                     width: "+=10"
                 }, 500).css({
-                    // 71. Rota el botón 10 grados
-                    transform: 'rotate(10deg)' 
+                    transform: 'rotate(10deg)' // Rota el botón 10 grados
                 });
     
-                // 72. Vuelve a la opacidad original, al tamaño 
-                // original y a la rotación original después de 
-                // la animación
+                // Vuelve a la opacidad original, al tamaño y a la rotación original después de la animación
                 setTimeout(() => {
                     $(this).animate({
-                        opacity: 1, 
-                        // 73. Restaura la altura original
-                        height: "-=10", 
-                        // 74. Restaura la anchura original
-                        width: "-=10" 
+                        opacity: 1,
+                        height: "-=10",
+                        width: "-=10"
                     }, 500).css({
-                        // 75. Restablece la rotación
-                        transform: 'rotate(0deg)' 
+                        transform: 'rotate(0deg)' // Restablece la rotación
+                    });
+    
+                    // Realiza la llamada Ajax después de la animación
+                    $.ajax({
+                        url: 'enviarCorreo.php', // URL del servidor que procesa la petición
+                        type: 'POST', // Método HTTP utilizado para la petición
+                        data: {
+                            // Envía los datos necesarios para la verificación o acción en el servidor
+                            nombre: $('#nombre').val(),
+                            tlf: $('#tlf').val(),
+                            email: $('#email').val(),
+                            mensaje: $('#mensaje').val()
+                        },
+                        success: function(response) {
+                            // Puedes añadir aquí cualquier lógica adicional basada en la respuesta
+                            console.log('Acción adicional basada en la respuesta del servidor.');
+                        },
+                        error: function() {
+                            alert(
+                                'Error (solo con Ajax, no es problema ' + 
+                                'cuando se utiliza XAMPP) al comunicarse ' + 
+                                'con el servidor.'
+                            );
+                        }
                     });
                 }, 500);
             } 
             
             else {
-                alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
+                // El formulario está vacío, muestra una alerta
+                // alert('EL FORMULARIO YA ESTÁ VACÍO!!!');
                 event.preventDefault();
             }
         });
