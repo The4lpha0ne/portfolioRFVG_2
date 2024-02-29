@@ -90,41 +90,106 @@ document.addEventListener('DOMContentLoaded', function() {
     );
 
     // 13. Activar el modo pantalla completa
-    fullscreenBtn.addEventListener(
-        'click', function() {
-            if (video.requestFullscreen) {
-                // Método estándar
-                video.requestFullscreen();
-            } 
-            
-            else if (video.mozRequestFullScreen) {
-                // Firefox
-                video.mozRequestFullScreen();
-            } 
-            
-            else if (video.webkitRequestFullscreen) {
-                // Chrome, Safari y Opera
-                video.webkitRequestFullscreen();
-            } 
-            
-            else if (video.msRequestFullscreen) {
-                // IE/Edge
-                video.msRequestFullscreen();
-            }
-        }
-    );
+    // fullscreenBtn.addEventListener(
+    //     'click', function() {
+    //         if (video.requestFullscreen) {
 
-    // 14. Actualiza la barra de progreso conforme 
+    //             video.requestFullscreen();
+    //         } 
+            
+    //         else if (video.mozRequestFullScreen) {
+
+    //             video.mozRequestFullScreen();
+    //         } 
+            
+    //         else if (video.webkitRequestFullscreen) {
+
+    //             video.webkitRequestFullscreen();
+    //         } 
+            
+    //         else if (video.msRequestFullscreen) {
+
+    //             video.msRequestFullscreen();
+    //         }
+    //     }
+    // );
+
+    // 13. Activar el modo pantalla completa. Agrega un 
+    // 'event listener' al botón de pantalla completa
+    fullscreenBtn.addEventListener('click', function() {
+        // 14. Inicializa una variable para almacenar el 
+        // método de solicitud de pantalla completa
+        var requestMethod;
+
+        // 15. Determina el método de solicitud de 
+        // pantalla completa según el navegador
+        if (video.requestFullscreen) {
+            // 16. Método estándar, utilizado por la 
+            // mayoría de los navegadores modernos
+            requestMethod = 'standard';
+        } 
+        
+        else if (video.mozRequestFullScreen) {
+            // 17. Método específico de Firefox
+            requestMethod = 'firefox';
+        } 
+        
+        else if (video.webkitRequestFullscreen) {
+            // 18. Método específico de Chrome, 
+            // Safari y Opera
+            requestMethod = 'webkit';
+        } 
+        
+        else if (video.msRequestFullscreen) {
+            // 19. Método específico de Internet 
+            // Explorer y Edge
+            requestMethod = 'ms';
+        }
+
+        // 20. Ejecuta el método de pantalla completa 
+        // según el navegador
+        switch(requestMethod) {
+            case 'standard':
+                // 21. Invoca el método estándar de 
+                // pantalla completa
+                video.requestFullscreen();
+                break;
+            case 'firefox':
+                // 22. Invoca el método de pantalla 
+                // completa de Firefox.
+                video.mozRequestFullScreen();
+                break;
+            case 'webkit':
+                // 23. Invoca el método de pantalla 
+                // completa de Webkit (Chrome, 
+                // Safari, Opera)
+                video.webkitRequestFullscreen();
+                break;
+            case 'ms':
+                // 24. Invoca el método de pantalla 
+                // completa de Microsoft (IE, Edge)
+                video.msRequestFullscreen();
+                break;
+            default:
+                // 25. Registra un mensaje si el 
+                // modo de pantalla completa no está 
+                // disponible
+                console.log('El modo pantalla completa no está disponible.');
+                break;
+        }
+    });
+
+    // 26. Actualiza la barra de progreso conforme 
     // avanza el vídeo
     video.addEventListener('timeupdate', function() {
         var value = 
         (100 / video.duration) * video.currentTime;
 
-        // 15. Actualiza la barra de progreso
+        // 27. Actualiza la barra de progreso
         progressBar.value = value;
     });
 
-    // 16. Mejora en la interacción con la barra de 
+    // 28. Mejora en la interacción con la barra de 
     // progreso. Permite al usuario buscar dentro 
     // del vídeo
     progressBar.addEventListener(
@@ -137,31 +202,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     );
 
-    // 17. Carga y establece el volumen guardado cuando 
+    // 29. Carga y establece el volumen guardado cuando 
     //se carga la página. Se obtiene el volumen 
     // guardado de localStorage
     var savedVolume = 
     localStorage.getItem('videoVolume');
 
     if (savedVolume) {
-        // 18. Establecer el volumen del vídeo
+        // 30. Establecer el volumen del vídeo
         video.volume = savedVolume;
-        // 19. Ajustar el control de volumen en la 
+        // 31. Ajustar el control de volumen en la 
         // interfaz de usuario
         volumeControl.value = savedVolume; 
     }
 });
 
-// 20. Función para cambiar el vídeo actual
+// 32. Función para cambiar el vídeo actual
 function changeVideo(sourceUrl) {
-    // 21. Se obtiene el elemento de video
+    // 33. Se obtiene el elemento de video
     var videoPlayer = 
     document.getElementById('video');
 
-    // 22. Se cambia la fuente del video
+    // 34. Se cambia la fuente del video
     videoPlayer.src = sourceUrl;
 
-    // 23. Se inicia la reproducción del nuevo 
+    // 35. Se inicia la reproducción del nuevo 
     // video
     videoPlayer.play();
 }

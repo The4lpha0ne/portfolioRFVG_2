@@ -64,13 +64,20 @@ $(document).ready(function() {
         });
     }
 
-    // 15. Confirmación de IndexDB
+    // 15. Confirmación de IndexDB. Esta función se ejecuta 
+    // al cargar la página que intenta abrir la base de 
+    // datos y maneja el resultado
     window.onload = function() {
+        // Llama a openDatabase y maneja la promesa resultante
         openDatabase().then((db) => {
+            // Registra en consola el éxito al abrir la base 
+            // de datos
             console.log(
                 'Base de datos abierta exitosamente', db
             );
         }).catch((error) => {
+            // Registra en consola el error si la base de 
+            // datos no puede abrirse
             console.error(
                 'Error al abrir la base de datos', error
             );
