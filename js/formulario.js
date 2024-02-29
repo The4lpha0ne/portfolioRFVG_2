@@ -547,7 +547,7 @@ $(document).ready(function() {
                             mensaje: $('#mensaje').val()
                         },
                         success: function(response) {
-                            console.log('Muy bien.');
+                            console.log('La llamada Ajax funcionó.');
                         },
                         error: function() {
                             alert(
