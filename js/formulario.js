@@ -547,8 +547,7 @@ $(document).ready(function() {
                             mensaje: $('#mensaje').val()
                         },
                         success: function(response) {
-                            // Puedes añadir aquí cualquier lógica adicional basada en la respuesta
-                            console.log('Acción adicional basada en la respuesta del servidor.');
+                            console.log('Muy bien.');
                         },
                         error: function() {
                             alert(
